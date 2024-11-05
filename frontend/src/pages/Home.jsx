@@ -121,7 +121,7 @@ function Home() {
           </div>
           <div className="middle">
             <Link to="/canvas">
-              <h1 className="game">GAME</h1>
+              <h1 className="game">ENTER GAME</h1>
             </Link>
           </div>
           <div className="side">
