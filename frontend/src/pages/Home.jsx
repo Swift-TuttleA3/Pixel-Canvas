@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import "../styles/Home.scss"; // Dein CSS
 import CarPixel from "../img/CarPixel.png";
 import logocontroller from "../img/logocontroller.png";
+import { Link } from "react-router-dom";
 
 function Home() {
   // Verweise für die Elemente
@@ -119,7 +120,9 @@ function Home() {
             </div>
           </div>
           <div className="middle">
-            <h1 className="game">GAME</h1>
+            <Link to="/canvas">
+              <h1 className="game">GAME</h1>
+            </Link>
           </div>
           <div className="side">
             <div className="topRight">
