@@ -281,13 +281,15 @@ main {
   text-align: center;
   width: 50%;
   margin: 0 auto;
+  margin-bottom: 5rem;
 }
 
 .middleWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 35vh;
+  height: 40vh;
+  margin-bottom: 5rem;
 }
 
 .bild {
@@ -308,6 +310,7 @@ main {
   text-align: center;
   font-size: calc(1rem + 4vw);
   letter-spacing: 0.1em;
+  margin-bottom: 5rem;
 }
 
 .teamWrapper {
