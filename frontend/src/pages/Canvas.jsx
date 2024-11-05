@@ -79,7 +79,10 @@ const Canvas = () => {
           if (data.type === "canvasUpdate") {
             setRectangles((prevRectangles) => {
               const updatedRectangles = [...prevRectangles, data.data];
-              localStorage.setItem("canvasData", JSON.stringify(updatedRectangles));
+              localStorage.setItem(
+                "canvasData",
+                JSON.stringify(updatedRectangles)
+              );
               return updatedRectangles;
             });
           }
@@ -175,10 +178,13 @@ const Canvas = () => {
 
         // Erhöhen des Pixel-Zählers und Abrufen des aktuellen Timers
         try {
-          const response = await fetch("http://localhost:5000/api/increment-pixel", {
-            method: "PUT",
-            credentials: "include",
-          });
+          const response = await fetch(
+            "http://localhost:5000/api/increment-pixel",
+            {
+              method: "PUT",
+              credentials: "include",
+            }
+          );
           const data = await response.json();
           if (response.ok) {
             setTimer(data.timer);
@@ -218,9 +224,7 @@ const Canvas = () => {
   const renderedRectangles = useMemo(() => {
     console.log("rectangles:", JSON.stringify(rectangles, null, 2));
     console.log("Rendered Rectangles:", JSON.stringify(rectangles, null, 2));
-    return rectangles.map((rect, index) => (
-      <Rect key={index} {...rect} />
-    ));
+    return rectangles.map((rect, index) => <Rect key={index} {...rect} />);
   }, [rectangles]);
 
   const handleExit = () => {
@@ -241,7 +245,12 @@ const Canvas = () => {
           <div id="canvas-container">
             <TransformWrapper
               defaultScale={1}
-              panning={{ allowLeftClickPan: false, allowRightClickPan: false, allowMiddleClickPan: true, velocityDisabled: true }}
+              panning={{
+                allowLeftClickPan: false,
+                allowRightClickPan: false,
+                allowMiddleClickPan: true,
+                velocityDisabled: true,
+              }}
               wheel={{ smoothStep: 0.03 }}
               maxScale={50}
               doubleClick={{ disabled: true }}
@@ -276,35 +285,27 @@ const Canvas = () => {
               </TransformComponent>
             </TransformWrapper>
             {dropdownPosition && (
-              <ColorDropdown position={dropdownPosition} onSelectColor={handleSelectColor} />
+              <ColorDropdown
+                position={dropdownPosition}
+                onSelectColor={handleSelectColor}
+              />
             )}
           </div>
           <div
-  id="overlay"
-  className="fixed bottom-0 left-0 w-full flex justify-between items-center p-2 bg-gray-800 text-white"
-  style={{ borderTop: `10px solid ${selectedColor}` }}
->
-            <div id="coordinates"
-              style={{ fontFamily: "monospace", width: "200px" }}
-              className="flex-1 text-center text-xl bg-gray-800 p-2">
-    <Coordinates coordinates={coordinates} />
-  </div>
-  <div
-    id="username-canvas"
-    className="flex-1 text-center text-xl bg-gray-800 p-2"
-    style={{ fontFamily: "monospace", width: "200px" }} 
-  >
-    You: {username} (Stufe: {tier} Timeout: {(Math.max(0, remainingTime) / 1000).toFixed(3)}s)
-  </div>
-  <button
-              id="exit-button"
-              style={{ fontFamily: "monospace", width: "200px" }}
-    className="flex-1 text-center text-xl bg-red-600 hover:bg-red-900 text-white font-bold py-2 px-4 rounded"
-    onClick={handleExit}
-  >
-    Exit
-  </button>
-</div>
+            className="overlay"
+            style={{ borderTop: `15px solid ${selectedColor}` }}
+          >
+            <div className="coordinates">
+              <Coordinates coordinates={coordinates} />
+            </div>
+            <div className="username-canvas">
+              You: {username} (Stufe: {tier} Timeout:{" "}
+              {(Math.max(0, remainingTime) / 1000).toFixed(3)}s)
+            </div>
+            <button className="exit-button" onClick={handleExit}>
+              Exit
+            </button>
+          </div>
         </>
       ) : (
         navigate("/login")
