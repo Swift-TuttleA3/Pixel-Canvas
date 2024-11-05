@@ -8,27 +8,22 @@ html, body {
 }
 
 
-
-body {
+.body {
   background-color: #f5cfb0; 
     width: 100vw;
 
-
-    }
-
-    header{
-      height: 29vh;
+   overflow: hidden;
     }
 
     nav ul {
-      display: flex;
-      justify-content: flex-end; 
-      list-style-type: none;
-      flex-wrap: wrap; }
-
+    display: flex;
+    justify-content: flex-end; 
+    list-style-type: none;
+    flex-wrap: wrap; 
+}
 
 nav ul li {
-    margin-right: 30px; 
+    margin-right: 15px; 
 }
 
 nav ul li a {
@@ -55,352 +50,274 @@ nav ul li a {
   border-top-left-radius: 200px;
   border-bottom-left-radius: 200px;
   background-color: #d1655bc2;
-  z-index: 1;
-  width: 50vw;
+  z-index: 2;
+  width: 80vw;
   height: 20vh;
   position: relative;
 }
 
-#rankingfernseher {
-  height: 25vh;
+#musicBild {
+  height: 20vh;
   position: relative;
-  z-index: 2; 
+  z-index: 1; 
   margin-right: -20px; 
 }
 
-#the {
+#lets {
   text-align: center;
   font-family: 'Gluten', display;
   color: #329694;
-  font-size: calc(1rem + 12vw);
+  font-size: calc(1rem + 15vw);
   text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
   margin-bottom: -20px; 
   position: relative;
   top: -10px; 
 }
 
-#best {
+#play {
   font-family: 'Gluten', display;
   text-align: center;
   color: #f5cfb0;
-  font-size: calc(1rem + 12vw);
+  font-size: calc(1rem + 15vw);
   text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
   margin-top: -20px; 
 
 }
 
-.eins{
+.canvaBild {
   display: flex;
+  justify-content: flex-end; 
+  width: 100vw; 
   background-color: #d1655bc2;
+  margin-top: 2rem;
 }
 
-#banner{
-  width: 50vw;
-  height: 15vh;
+#canva {
+  width: 80vw;
+  margin-top: -3.5rem;
+z-index: 1;
 }
 
-.templang-image-box{
-  margin-left: 10%;
-  background-image: url(./assets/templatelang.png);
-  background-repeat: no-repeat;
-  background-size: 10rem;
-  background-position: center;
-  width: 40vw;
-  height: 54vw;
-  transform: translateY(20%);
+.bilderDiv {
+  margin-top: 2rem;
   display: flex;
-  text-align: center;
-  justify-content: center;
-  
+  width: 100vw;
 }
 
-.templang-image-text{
-  width: 30vw;
- margin-top: 25% ;
- font-size: 0.7rem;
+#rankingBild{
+width: 50vw;
+z-index: 1;
 }
 
-
-.zwei{
-display: flex;
+#movieBild{
+width: 50vw;
+z-index: 1;
 }
 
-.tempranking-image-box{
-  background-image: url(./assets/rankingtemplate.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 11rem;
-  width: 45vw;
-  height: 26vh;
-  transform: translateY(-20%);
+.counterDiv {
+  background-image: url(./assets/lerresfeld.png);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; /* Elemente untereinander anordnen */
+  justify-content: center; /* Vertikale Zentrierung */
+  align-items: center; /* Horizontale Zentrierung */
+  background-repeat: no-repeat;
+  background-position: center; /* Bild in der Mitte des Containers */
+  background-size: contain; /* Bild vollständig anzeigen */
+  position: relative; /* Erforderlich für die Z-Index-Regelung */
+  height: 35vh; /* Höhe des Containers */
 }
 
-.custom-table {
-  margin-top: 10%;
-  width: 100%;
+#playercounter {
+  font-family: 'Actor', sans-serif;
+  color: white; /* Textfarbe */
+  margin-bottom: 20px; /* Abstand zur Tabelle */
+  font-size: 1.5rem; /* Größe des Player Counters, kann angepasst werden */
+}
+
+table {
   border-collapse: collapse;
-  border: 2px solid #329694;
+  z-index: 1; /* Tabelle über dem Hintergrundbild */
+  background-color: rgba(245, 207, 176, 0.9); /* Leicht transparent für bessere Sichtbarkeit des Hintergrunds */
+  position: relative; /* Sicherstellen, dass die z-index-Eigenschaft greift */
+  max-width: 80%; /* Maximalbreite */
+  margin: 0 auto; /* Zentriert die Tabelle horizontal */
 }
 
-.custom-table td {
-  padding: 10px;
-  border: 1px solid #329694; 
+td {
+  border: 2px solid #329694; /* Rahmenfarbe */
+  padding: 15px; /* Weniger Padding für die Zellen */
   text-align: center;
-  font-size: 0.7rem;
-  color: #fff;
-}
-
-#einhornbanner{
-  margin-top: 10%;
-  width: 55vw;
-  height: 15vh;
-}
-
-.drei{
-  display: flex;
-  background-color: #d1655bc2;
-}
-
-#shop{
-  margin-top: 34%;
-  width: 35vw;
-  height: 35vw;
-  transform: translateX(-50%);
-}
-
-#baum{
-  margin-top: 32%;
-  width: 35vw;
-  height: 35vw;
-  transform: translateX(10%);
-}
-
-#profilblau{
-  width: 20vw;
-}
-
-.profil{
-  color: white;
-  text-align: center;
-  font-size: 1rem;
-}
-
-.at{
-  font-family: 'Gluten', display;
-  color: white;
-}
-
-#place{
-  font-size: 1rem;
-}
-
-#rankingtabelle {
-  width: 50%; /* Breite der Tabelle auf 50% des Containers setzen */
-  border-collapse: collapse; /* Rahmen zusammenfassen */
-  border: 2px solid #329694; /* Rahmen für die gesamte Tabelle */
-  margin: auto; /* Zentriert die Tabelle horizontal */
-}
-
-#rankingtabelle td {
-  padding: 10px; /* Innenabstand für die Zellen */
-  border: 1px solid #329694; /* Rahmen für die einzelnen Zellen */
-  text-align: center; /* Text in der Mitte der Zellen */
-  color: #fff; /* Textfarbe */
+  background-color: #f5cfb0; /* Zellenfarbe */
+  color: #329694; /* Textfarbe */
+  font-size: 1.2rem;
 }
 
 
-/* Smartphones im Hochformat und kleine Geräte */
-@media only screen and (min-width: 390px) and (max-width: 480px) { 
 
-  nav ul {
-    display: flex;
-    justify-content: center; /* Zentriert die Liste innerhalb der Navigationsleiste */
-    list-style-type: none;
-    padding: 0; /* Entfernt den Standard-Padding */
-    margin: 0; /* Entfernt den Standard-Margin */
+
+
+/* Für mobile Geräte, kleinere Bildschirme */
+@media (max-width: 374px){
+    nav ul {
+        justify-content: center; 
+    }
+
+    nav ul li {
+        margin-right: 10px; 
+    }
+    #lets {
+      margin: 2%;
+     
+      }
+}
+
+@media (min-width: 375px) and (max-width: 599px) {
+  #lets {
+    margin: 2%;
+   
+    }
+}
+
+@media (min-width: 600px) and (max-width: 700px) {
+  #lets {
+  margin: 2%;
+  font-size: calc(1rem + 15vw);
   }
+
+  #play{
+    font-size: calc(1rem + 15vw);
+  }
+}
+
+@media (min-width: 701px) and (max-width: 799px) {
+  #lets {
+    margin: 2%;
+    font-size: calc(1rem + 12vw);
+    }
   
-  nav ul li {
-    margin-right: 15px; /* Abstand zwischen den Listenelementen reduziert */
-  }
+    #play{
+      font-size: calc(1rem + 12vw);
+    }
+
   
-  nav ul li:last-child {
-    margin-right: 0; /* Entfernt den Abstand nach dem letzten Element */
-  }
-
 }
 
-/* Smartphones im Querformat und kleinere Tablets */
-@media only screen and (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 800px) and (max-width: 899px) {
+  #lets {
+    margin: 2%;
+    font-size: calc(1rem + 12vw);
+    }
+  
+    #play{
+      font-size: calc(1rem + 12vw);
+    }
+    .redDiv {
+   height: 25vh;
+    }
 
-  .templang-image-box{
-    background-size: 14rem;
-  }
-
-  .tempranking-image-box{
-    background-size: 15rem;
-    height: 70vw;
-  }
-
-  #einhornbanner{
-    width: 50vw;
-  }
-
-  #the{
-  margin-top: 6px;
-  }
-
-.redDiv{
-  width: 100vw;
+    #musicBild {
+      height: 25vh;
+    }
 }
 
-.headerWrapper{
-  margin-left: 9%;
+@media (min-width: 900px) and (max-width: 1199px) {
+  #lets {
+    margin: 2%;
+    font-size: calc(1rem + 12vw);
+    }
+  
+    #play{
+      font-size: calc(1rem + 12vw);
+    }
+
+    .redDiv {
+      height: 28vh;
+       }
+   
+       #musicBild {
+         height: 25vh;
+       }
 }
 
-#banner{
-  width: 50vw;
-  height: 30vw;
-}
+@media (min-width: 1200px) {
+  #lets {
+    margin: 2%;
+    font-size: calc(1rem + 9vw);
+    }
+  
+    #play{
+      font-size: calc(1rem + 9vw);
+    }
 
-#shop{
-  margin-top: 142px;
-}
+    .redDiv {
+      height: 35vh;
+      width: 100vw;
+      background-size: 40em;
+      background-position: center;
+       }
+   
+       #musicBild {
+         height: 50vh;
+         
+       }
 
-#baum{
-  margin-left: 5%;
-  margin-top: 130px;
-}
- }
+       #canva{
+        width: 100vh;
+        margin-top: -6%;
+        margin-right: 1%;
+       }
 
-/* Tablets im Hochformat */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-
-  .templang-image-box{
-    background-size: 19rem;
-  }
-
-  .tempranking-image-box{
-    background-size: 21rem;
-    height: 70vw;
-  }
-
-  #einhornbanner{
-    width: 50vw;
-  }
-
-  #the{
-  margin-top: 6px;
-  }
-
-.redDiv{
-  width: 100vw;
-}
-
-.headerWrapper{
-  margin-left: 9%;
-}
-
-#banner{
-  width: 50vw;
-  height: 30vw;
-}
-
-#shop{
-  margin-top: 142px;
-}
-
-#baum{
-  margin-left: 15%;
-  margin-top: 130px;
-}
-
-.custom-table {
-  margin-top: 10%;
-  width: 98%;
-  height: 70%;
-}
-
-.custom-table td {
-  font-size: 2rem;
-}
-
-.templang-image-text{
- font-size: 1.5rem;
+       .counterDiv {
+        height: 100vh; /* Höhe des Containers */
+      }
+      
+      #playercounter {
+        font-family: 'Actor', sans-serif;
+        color: white; /* Textfarbe */
+        margin-bottom: 20px; /* Abstand zur Tabelle */
+        font-size: 4rem; /* Größe des Player Counters, kann angepasst werden */
+      }
+      
+      table {
+        border-collapse: collapse;
+        z-index: 1; /* Tabelle über dem Hintergrundbild */
+        background-color: rgba(245, 207, 176, 0.9); /* Leicht transparent für bessere Sichtbarkeit des Hintergrunds */
+        position: relative; /* Sicherstellen, dass die z-index-Eigenschaft greift */
+        max-width: 80%; /* Maximalbreite */
+        margin: 0 auto; /* Zentriert die Tabelle horizontal */
+      }
+      
+      td {
+        border: 2px solid #329694; /* Rahmenfarbe */
+        padding: 15px; /* Weniger Padding für die Zellen */
+        text-align: center;
+        background-color: #f5cfb0; /* Zellenfarbe */
+        color: #329694; /* Textfarbe */
+        font-size: 20rem;
+      }
+      
 }
 
 
 
- }
-
-/* Laptops und kleinere Desktops */
-@media only screen and (min-width: 1024px) and (max-width: 1280px) { 
-
-  .templang-image-box{
-    background-size: 25rem;
-  }
-
-  .tempranking-image-box{
-    background-size: 28rem;
-    height: 70vw;
-  }
-
-  #einhornbanner{
-    width: 50vw;
-  }
-
-  #the{
-  margin-top: 6px;
-  }
-
-.redDiv{
-  width: 100vw;
-}
-
-.headerWrapper{
-  margin-left: 9%;
-}
-
-#banner{
-  width: 50vw;
-  height: 30vw;
-}
-
-#shop{
-  margin-top: 142px;
-}
-
-#baum{
-  margin-left: 15%;
-  margin-top: 130px;
-}
-
-.custom-table {
-  margin-top: 10%;
-  width: 98%;
-  height: 70%;
-}
-
-.custom-table td {
-  font-size: 2rem;
-}
-
-.templang-image-text{
- font-size: 1.5rem;
-}
-
-#rankingtabelle{
-  width: 100%;
-}
 
 
-}
 
-/* Größere Desktops und Bildschirme */
-@media only screen and (min-width: 1281px) { }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -625,4 +542,5 @@ display: flex;
       1400px 2200px rgba(231, 200, 140, 1), 
       1700px 2150px rgba(240, 154, 100, 1); 
 }
+
 

@@ -89,91 +89,97 @@ useEffect(() => {
 
 return (
   <div className='body'>
-    <header>
-      <div className="headerDiv">
-        <div className="first xl:container">
-          <h1 id="title" ref={titleRef}>DCI</h1>
-          <p id="catchphrase" ref={catchphraseRef}>DIGITAL CAREER INSTITUTE</p>
-          <button className="play">
-            <h1 className="playFont">LOG IN</h1>
-          </button>
+  <header>
+    <div className="headerDiv">
+      <div className="whiteDiv">
+        <h1 id="title" ref={titleRef}>DCI</h1>
+        <p id="catchphrase" ref={catchphraseRef}>DIGITAL CAREER INSTITUTE</p>
+        <button className="play">
+          <h1 className="playFont">PLAY</h1>
+        </button>
+      </div>
+      <div className="redDiv">
+        <h1 id="titlePixel">PIXEL</h1>
+        <h1 id="titleWars">WARS</h1>
+      </div>
+    </div>
+
+    <div id="stars" ref={el => starsRef.current.push(el)}></div>
+    <div id="stars2" ref={el => stars2Ref.current.push(el)}></div>
+    <div id="stars3" ref={el => stars3Ref.current.push(el)}></div>
+  </header>
+
+  <main>
+    <h1 className="overview">OVERVIEW</h1>
+    <div className="container">
+      <div className="side">
+        <div className="topLeft">
+          <h1 className="ranking">RANKING</h1>
         </div>
-        <div className="second xl:container">
-          <h1 id="titlePixel">PIXEL</h1>
-          <h1 id="titleWars">WARS</h1>
+        <div className="bottomLeft">
+          <h1 className="coding">CODING</h1>
         </div>
       </div>
-
-      <div id="stars" ref={el => starsRef.current.push(el)}></div>
-      <div id="stars2" ref={el => stars2Ref.current.push(el)}></div>
-      <div id="stars3" ref={el => stars3Ref.current.push(el)}></div>
-    </header>
-
-    <main>
-      <h1 className="overview">OVERVIEW</h1>
-      <div className="menue">
-        <div className="side">
-          <div className="topLeft">
-            <h1 className="ranking">RANKING</h1>
-          </div>
-          <div className="bottomLeft">
-            <h1 className="coding">CODING</h1>
-          </div>
+      <div className="middle">
+        <h1 className="game">GAME</h1>
+      </div>
+      <div className="side">
+        <div className="topRight">
+          <h1 className="team">TEAM</h1>
         </div>
-        <div className="middle">
-          <h1 className="game">GAME</h1>
-        </div>
-        <div className="side">
-          <div className="topRight">
-            <h1 className="team">TEAM</h1>
-          </div>
-          <div className="bottomRight">
-            <h1 className="AGB">AGB</h1>
-          </div>
+        <div className="bottomRight">
+          <h1 className="AGB">AGB</h1>
         </div>
       </div>
-      <h1 className="finalproject">FINAL PROJECT</h1>
-      <p className="lorem">
-        Lorem Ipsum ist in der Webentwicklung so beliebt, weil es einfach
-        keine Meinung hat. Es streitet nicht über Designentscheidungen und
-        beschwert sich nie über die Farbwahl oder die Typografie. Dazu klingt
-        es noch richtig schick – wer hätte gedacht, dass ein paar lateinisch
-        klingende Wörter einen simplen Platzhalter so intellektuell wirken
-        lassen? Der eigentliche Clou ist aber: Niemand liest es! Perfekt für
-        Entwickler, denn so müssen sie keine Sorge haben, dass der Text vom
-        Layout ablenkt oder plötzlich jemand fragt: Was bedeutet das
-        eigentlich? Außerdem steht Lorem Ipsum immer und überall bereit.
-      </p>
+    </div>
+    <h1 className="finalproject">FINAL PROJECT</h1>
+    <p className="lorem">
+      Lorem Ipsum ist in der Webentwicklung so beliebt, weil es einfach
+      keine Meinung hat. Es streitet nicht über Designentscheidungen und
+      beschwert sich nie über die Farbwahl oder die Typografie. Dazu klingt
+      es noch richtig schick – wer hätte gedacht, dass ein paar lateinisch
+      klingende Wörter einen simplen Platzhalter so intellektuell wirken
+      lassen? Der eigentliche Clou ist aber: Niemand liest es! Perfekt für
+      Entwickler, denn so müssen sie keine Sorge haben, dass der Text vom
+      Layout ablenkt oder plötzlich jemand fragt: Was bedeutet das
+      eigentlich? Außerdem steht Lorem Ipsum immer und überall bereit.
+    </p>
 
-      <div className="divwrapperweilichzublödbineinbildohnedivzuzentrieren">
-        <img
-          className="bild"
-          src={CarPixel}
-          alt="a Pixled Car for a shop with a tree in background"
-        />
-      </div>
-
-      <h1 className="teamTitle">TEAM</h1>
+    <div className="middleWrapper">
       <img
-            className="controllerhidden"
-            src="/images/logocontroller.png"
-            alt="ein pixelier controller"
-          />
-      <div className="divwrapperweilichzublödbineinbildohnedivzuzentrierenzwei">
-        <div className="frontend">
-          <h1 className="dev">FRONTEND</h1>
-        </div>
-        <img
-          className="controller"
-          src={logocontroller}
-          alt="ein pixelier controller"
-        />
-        <div className="backend">
-          <h1 className="dev">BACKEND</h1>
-        </div>
+        className="bild"
+        src="CarPixel"
+        alt="a Pixled Car for a shop with a tree in background"
+      />
+    </div>
+
+    <h1 className="teamTitle">TEAM</h1>
+    <img
+        className="controllerhidden"
+        src="logocontroller"
+        alt="ein pixelier controller"
+      />
+    <div className="teamWrapper">
+      <div className="frontend">
+        <h1 className="dev">FRONTEND</h1>
+        <p className='names'>Lea</p>
+        <p className='names'>Robert</p>
+        <p className='names'>Stina</p>
       </div>
-    </main>
-  </div>
+      <img
+        className="controller"
+        src="logocontroller"
+        alt="ein pixelier controller"
+      />
+      <div className="backend">
+        <h1 className="dev">BACKEND</h1>
+        <p className='names'>Benni</p>
+        <p className='names'>Steven</p>
+        <p className='names'>Tim</p>
+      </div>
+    </div>
+  </main>
+</div>
 );
 }
 
