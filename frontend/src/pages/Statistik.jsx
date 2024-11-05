@@ -162,3 +162,5 @@ return (
 
   )
 }
+
+export default Statistik;
