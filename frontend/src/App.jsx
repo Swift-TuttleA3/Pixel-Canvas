@@ -5,7 +5,7 @@ import Canvas from "./pages/Canvas.jsx";
 import Login from "./pages/Login.jsx";
 import Home from "./pages/Home.jsx";
 import HomeLayout from "./components/HomeLayout.jsx";
-// import Statistik from "./pages/Statistik.jsx";
+import Statistik from "./pages/Statistik.jsx";
 import Profile from "./pages/Profile.jsx";
 import DevDesk from "./pages/DevDesk.jsx";
 import Team from "./pages/Team.jsx";
@@ -24,14 +24,14 @@ function App() {
       </Route>
       <Route path="/" element={<Layout />}>
         <Route path="/login" element={<Login />} />
-        {/* <Route
+        <Route
           path="/statistik"
           element={
             <PrivateRoute>
               <Statistik />
             </PrivateRoute>
           }
-        /> */}
+        />
         <Route
           path="/profile"
           element={

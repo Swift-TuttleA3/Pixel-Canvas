@@ -32,7 +32,7 @@ function LoginPage() {
       const data = await login(email, password);
       localStorage.setItem('token', data.token); 
       setMessage({ type: 'success', text: "Erfolgreicher Login!" });
-      window.location.href = "/profile";
+      window.location.href = "/canvas";
     } catch (err) {
       setMessage({ type: 'error', text: err.message });
     }
