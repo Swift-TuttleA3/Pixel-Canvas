@@ -8,7 +8,7 @@ import "./styles/Navbar.scss";
 import "./styles/Canvas.scss";
 import "./styles/ColorDropdown.scss";
 import "./styles/Home.scss";
-import "./styles/Statistik.scss";
+// import "./styles/Statistik.scss";
 import "./styles/DevDesk.scss";
 import "./styles/Profile.scss";
 import "./styles/Team.scss";
