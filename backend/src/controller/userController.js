@@ -168,8 +168,8 @@ const incrementPixelCount = async (req, res) => {
 
     user.clicks += 1;
 
-    // Überprüfen, ob der Benutzer 500 Pixel gesetzt hat
-    if (user.clicks >= 500 && user.tier < 2) {
+    // Überprüfen, wie viele OPixel der user gesetzt hat
+    if (user.clicks >= 500 && user.tier === 1) {
       user.tier += 1; // Stufe erhöhen
       user.timer = user.timer / 2; // Timer für diesen user halbieren
       console.log("Tier 2 erreicht");

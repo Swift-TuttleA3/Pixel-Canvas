@@ -26,6 +26,7 @@ const Canvas = () => {
   const [dropdownPosition, setDropdownPosition] = useState(null);
   const [timer, setTimer] = useState(5000); // Standard-Timer
   const [isClickAllowed, setIsClickAllowed] = useState(true);
+  const [remainingTime, setRemainingTime] = useState(0); // Verbleibende Zeit
   const stageRef = useRef(null);
   const layerRef = useRef(null);
   const navigate = useNavigate();
@@ -125,6 +126,16 @@ const Canvas = () => {
     };
   }, [setRectangles]);
 
+  useEffect(() => {
+    let interval;
+    if (remainingTime > 0) {
+      interval = setInterval(() => {
+        setRemainingTime((prevTime) => prevTime - 1);
+      }, 1);
+    }
+    return () => clearInterval(interval);
+  }, [remainingTime]);
+
   const handleMouseMove = (e) => {
     const { x, y } = e.target.getStage().getPointerPosition();
     const cellX = Math.floor(x / 2);
@@ -173,6 +184,7 @@ const Canvas = () => {
             setTimer(data.timer);
             setTier(data.tier); // Stufe des Nutzers aktualisieren
             localStorage.setItem("tier", data.tier); // Stufe im lokalen Speicher speichern
+            setRemainingTime(data.timer); // Verbleibende Zeit setzen
           } else {
             console.error("Fehler beim Erhöhen des Pixel-Zählers:", data.msg);
           }
@@ -268,24 +280,31 @@ const Canvas = () => {
             )}
           </div>
           <div
-            id="overlay"
-            className="fixed bottom-0 left-0 w-full flex justify-between items-center p-3 bg-gray-800 text-white"
-            style={{ borderTop: `10px solid ${selectedColor}` }}
-          >
-            <div id="coordinates" className="flex-1 text-center bg-gray-800 p-2">
-              <Coordinates coordinates={coordinates} />
-            </div>
-            <div id="username-canvas" className="flex-1 text-center bg-gray-800 p-2">
-              You: {username} Stufe: {tier}
-            </div>
-            <button
+  id="overlay"
+  className="fixed bottom-0 left-0 w-full flex justify-between items-center p-2 bg-gray-800 text-white"
+  style={{ borderTop: `10px solid ${selectedColor}` }}
+>
+            <div id="coordinates"
+              style={{ fontFamily: "monospace", width: "200px" }}
+              className="flex-1 text-center text-xl bg-gray-800 p-2">
+    <Coordinates coordinates={coordinates} />
+  </div>
+  <div
+    id="username-canvas"
+    className="flex-1 text-center text-xl bg-gray-800 p-2"
+    style={{ fontFamily: "monospace", width: "200px" }} 
+  >
+    You: {username} (Stufe: {tier} Timeout: {(Math.max(0, remainingTime) / 1000).toFixed(3)}s)
+  </div>
+  <button
               id="exit-button"
-              className="flex-1 text-center bg-red-600 hover:bg-red-900 text-white font-bold py-2 px-4 rounded"
-              onClick={handleExit}
-            >
-              Exit
-            </button>
-          </div>
+              style={{ fontFamily: "monospace", width: "200px" }}
+    className="flex-1 text-center text-xl bg-red-600 hover:bg-red-900 text-white font-bold py-2 px-4 rounded"
+    onClick={handleExit}
+  >
+    Exit
+  </button>
+</div>
         </>
       ) : (
         navigate("/login")

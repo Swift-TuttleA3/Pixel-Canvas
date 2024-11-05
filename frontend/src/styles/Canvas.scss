@@ -1,10 +1,3 @@
-@font-face {
-  font-family: 'Press Start 2P';
-  src: url('../assets/fonts/press_start_2p/PressStart2P.ttf');
-}
-
-$background-image-canvas-container: url("../assets/media/img/canvas-bg-wimmel.png");
-
 $colors: (
     color0: #454545,
     color1: #329694,
@@ -39,7 +32,7 @@ $colors: (
 }
 
 body {
-  font-family: 'Press Start 2P', sans-serif;
+  font-family: 'Gluten', sans-serif;
   overflow: hidden;
 }
 

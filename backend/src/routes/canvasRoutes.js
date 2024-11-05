@@ -29,6 +29,16 @@ router.get("/:id", authMiddleware, async (req, res) => {
   }
 });
 
+// Route zum Abrufen der Gesamtanzahl der Canvas-Einträge
+router.get("/count", authMiddleware, async (req, res) => {
+  try {
+    const totalEntries = await Canvas.countDocuments();
+    res.json({ totalEntries });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 // Route zum Aktualisieren eines Canvas-Eintrags
 router.put("/:id", authMiddleware, async (req, res) => {
   const { id } = req.params;
