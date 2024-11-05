@@ -12,3 +12,4 @@
 !/src/styles/Home.scss
 !/src/styles/Statistik.scss
 
+!tailwind.config.js
