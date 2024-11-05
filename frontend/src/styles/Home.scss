@@ -19,69 +19,31 @@ body {
 
 .headerDiv {
   display: flex;
-  position: relative;
   justify-content: flex-start;
   align-items: center;
 }
 
 .whiteDiv {
-    position: relative;
-    width: 55vw;
-    height: 40vh;
-    background-color: rgba(255, 255, 255, 0.603);
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-    z-index: 2;
+  width: 55vw;
+  background-color: rgba(255, 255, 255, 0.603);
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  z-index: 2;
+  min-height: min-content;
+  box-sizing: border-box;
 }
-
 
 .redDiv {
-    background-image: url(/images/pixel.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size:40em;
-    margin-top: 18%;
-    border-top-left-radius: 200px;
-    border-bottom-left-radius: 200px;
-    width: 51vw;
-    height: 40vh;
-    background-color: #d1655bc2;
-    margin-left: -7vw;
-    z-index: 1;
-    padding: 0;
-}
-
-.play {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  color: #ffff;
-  width: 7vw;
-  height: 7vw;
-  background-color: #d1645b;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s;
-}
-
-.play:hover {
-  background-color: #2e8c7c;
-}
-
-.playFont {
-  font-family: "Actor", sans-serif;
-  margin-top: 10%;
-  color: #ffff;
-  text-align: center;
-  font-size: calc(0.5rem + 1vw);
-  letter-spacing: 0.1em;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-    0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+  background-size: 40em;
+  margin-top: 18%;
+  border-top-left-radius: 200px;
+  border-bottom-left-radius: 200px;
+  width: 55vw;
+  background-color: #d1655bc2;
+  margin-left: -7vw;
+  z-index: 1;
+  padding: 0;
+  min-height: min-content;
 }
 
 #title {
@@ -95,50 +57,53 @@ body {
 }
 
 #catchphrase {
-    font-size: calc(0.5rem + 1vw);
-    color: #f5cfb0;
-    font-family: 'Actor', sans-serif;
-    font-weight: bold;
-    text-align: center;
-    margin-top: -5rem;
+  font-size: calc(0.5rem + 1vw);
+  color: #f5cfb0;
+  font-family: "Actor", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin-top: -5rem;
+  margin-bottom: 3rem;
 }
 
 #titlePixel {
   font-family: "Gluten", display;
   text-align: center;
   color: #329694;
-  font-size: calc(1rem + 9vw);
+  font-size: calc(1rem + 7vw);
   text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
   margin-bottom: 1rem;
   margin: 1%;
 }
 
 #titleWars {
-    font-family: 'Gluten', display;
-    text-align: center;
-    color: #f5cfb0;
-    font-size: calc(1rem + 9vw);
-    text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
-    margin-top: -6rem;
+  font-family: "Gluten", display;
+  text-align: center;
+  color: #f5cfb0;
+  font-size: calc(1rem + 9vw);
+  text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
+  margin-top: -6rem;
 }
 
 /*-------------------------------------------------------Main-------------------------------------------------------------------*/
 
 .overview {
   font-family: "Actor", sans-serif;
-  margin-top: 5%;
+  margin: 5% 0;
   color: #ffff;
+  text-shadow: 3px 1px #329694;
   text-align: center;
   font-size: calc(1rem + 4vw);
   letter-spacing: 0.1em;
+  padding-bottom: 3rem;
 }
 
 main {
-    position: relative;
-    z-index: 3;
-    justify-content: center;
-    align-items: center;
-    position: relative; 
+  position: relative;
+  z-index: 3;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .container {
@@ -147,6 +112,7 @@ main {
   justify-content: center;
   align-items: center;
   position: relative;
+  margin: 0 auto;
 }
 
 /*-----------------------------------------------------Div Button-----------------------------------------------------------------*/
@@ -160,16 +126,26 @@ main {
 }
 
 .topLeft,
-.bottomLeft,
+.bottomLeft {
+  flex: 1;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: white;
+  border-radius: 50px;
+  margin: 1rem 0;
+  z-index: 1;
+}
+
 .topRight,
 .bottomRight {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   color: white;
   border-radius: 50px;
-  margin: 15px 0;
+  margin: 1rem 0;
   z-index: 1;
 }
 
@@ -233,33 +209,36 @@ main {
   box-sizing: border-box;
 }
 
-.ranking{
-    font-family: 'Gluten', display;
-    text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
-    color: #329694;
-    font-size: calc(1rem + 4vw);
-   margin-right: 1px;
+.ranking {
+  font-family: "Gluten", display;
+  text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
+  color: #329694;
+  font-size: calc(0.5rem + 4vw);
+  margin-left: 1rem;
 }
 
 .coding {
   color: #f5cfb0;
   font-family: "Gluten", display;
   text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
-  font-size: calc(1rem + 4vw);
+  font-size: calc(0.5rem + 4vw);
+  margin-left: 1rem;
 }
 
 .team {
   font-family: "Gluten", display;
   text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
   color: #329694;
-  font-size: calc(1rem + 4vw);
+  font-size: calc(0.5rem + 4vw);
+  margin-right: 1rem;
 }
 
 .AGB {
   color: #f5cfb0;
   font-family: "Gluten", display;
   text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
-  font-size: calc(1rem + 4vw);
+  font-size: calc(0.5rem + 4vw);
+  margin-right: 1rem;
 }
 
 .game {
@@ -285,8 +264,9 @@ main {
 
 .finalproject {
   font-family: "Actor", sans-serif;
-  margin-top: 5%;
+  margin: 5% 0;
   color: #ffff;
+  text-shadow: 3px 1px #329694;
   text-align: center;
   font-size: calc(1rem + 4vw);
   letter-spacing: 0.1em;
@@ -301,13 +281,15 @@ main {
   text-align: center;
   width: 50%;
   margin: 0 auto;
+  margin-bottom: 5rem;
 }
 
-.middleWrapper{
-    display: flex;
-    justify-content: center;  
-    align-items: center;     
-    height: 70vh; 
+.middleWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  margin-bottom: 5rem;
 }
 
 .bild {
@@ -324,17 +306,19 @@ main {
   font-family: "Actor", sans-serif;
   margin-top: 5%;
   color: #ffff;
+  text-shadow: 3px 1px #329694;
   text-align: center;
   font-size: calc(1rem + 4vw);
   letter-spacing: 0.1em;
+  margin-bottom: 5rem;
 }
 
-.teamWrapper{
-    display: flex;
-    justify-content: center;  
-    align-items: center;  
-    height: 70vh;  
-    margin-top: -5%;
+.teamWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  margin-top: -5%;
 }
 .controllerhidden {
   display: none;
@@ -374,406 +358,12 @@ main {
   letter-spacing: 0.1em;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
     0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+  text-shadow: 3px 1px #329694;
 }
 
 /*-----------------------------------------------------Media Query-----------------------------------------------------------------*/
 
-/*-------------------Mobile--------------------*/
-
-@media only screen and (min-width: 390px) and (max-width: 480px) {
-  /*--------Header-------*/
-  .first {
-    height: 15vh;
-  }
-  .second {
-    height: 15vh;
-  }
-
-  .play {
-    height: 9vw;
-  }
-
-  .playFont {
-    margin-top: 8px;
-  }
-
-  #catchphrase {
-    font-size: calc(0.5rem + 1vw);
-    margin-right: 15px;
-  }
-
-  /*--------Div Button-------*/
-
-  .topLeft,
-  .bottomLeft,
-  .topRight,
-  .bottomRight {
-    margin: 5px 0;
-  }
-
-  .bottomLeft {
-    -webkit-mask-image: radial-gradient(
-      circle 150px at 100% 0,
-      transparent 0,
-      transparent 55px,
-      black 21px
-    );
-    background-color: #945d4e;
-  }
-
-  .topLeft {
-    -webkit-mask-image: radial-gradient(
-      circle 150px at 100% 100%,
-      transparent 0,
-      transparent 55px,
-      black 21px
-    );
-    background-color: #d1645b;
-  }
-
-  .topRight,
-  .bottomRight {
-    flex: 1;
-  }
-
-  .topRight {
-    -webkit-mask-image: radial-gradient(
-      circle 150px at 0 100%,
-      transparent 0,
-      transparent 55px,
-      black 21px
-    );
-    background-color: #945d4e;
-  }
-
-  .bottomRight {
-    -webkit-mask-image: radial-gradient(
-      circle 150px at 0 0,
-      transparent 0,
-      transparent 55px,
-      black 21px
-    );
-    background-color: #d1645b;
-  }
-
-  .controller {
-    max-width: 35%;
-  }
-
-  .middle {
-    background-color: #d1645b;
-    border: 8px solid #eb8c80;
-    width: 24vw;
-    height: 26vw;
-  }
-
-  .ranking {
-    font-size: calc(0.2rem + 4vw);
-    margin-right: 28%;
-  }
-
-  .coding {
-    margin-right: 22%;
-    font-size: calc(0.2rem + 4vw);
-  }
-
-  .team {
-    font-size: calc(0.2rem + 4vw);
-  }
-
-  .AGB {
-    font-size: calc(0.2rem + 4vw);
-  }
-
-  .game {
-    margin-top: 10px;
-    font-size: calc(0.2rem + 4vw);
-  }
-
-  /*--------Main Team Container-------*/
-
-  .dev {
-    font-size: calc(1rem + 1vw);
-  }
-
-  .uwezwei {
-    display: table;
-    margin: 0 auto;
-  }
-
-  .controller {
-    display: none;
-  }
-
-  .uwe {
-    height: 25vh;
-  }
-
-  .bild {
-    transform: scale(0.7);
-    max-width: 100%;
-    height: auto;
-  }
-
-  .controllerhidden {
-    display: block;
-    width: 25vw;
-    margin: 0 auto;
-  }
-}
-
-/*-------------------Mobile groß--------------------*/
-
-@media only screen and (min-width: 481px) and (max-width: 767px) {
-  /*--------Header-------*/
-  .first {
-    height: 20vh;
-  }
-  .second {
-    height: 20vh;
-  }
-
-  /*--------Div Button-------*/
-
-  .topLeft,
-  .bottomLeft,
-  .topRight,
-  .bottomRight {
-    margin: 5px 0;
-  }
-
-  .bottomLeft {
-    -webkit-mask-image: radial-gradient(
-      circle 150px at 100% 0,
-      transparent 0,
-      transparent 80px,
-      black 21px
-    );
-    background-color: #945d4e;
-  }
-
-  .topLeft {
-    -webkit-mask-image: radial-gradient(
-      circle 150px at 100% 100%,
-      transparent 0,
-      transparent 80px,
-      black 21px
-    );
-    background-color: #d1645b;
-  }
-
-  .topRight,
-  .bottomRight {
-    flex: 1;
-  }
-
-  .topRight {
-    -webkit-mask-image: radial-gradient(
-      circle 150px at 0 100%,
-      transparent 0,
-      transparent 80px,
-      black 21px
-    );
-    background-color: #945d4e;
-  }
-
-  .bottomRight {
-    -webkit-mask-image: radial-gradient(
-      circle 150px at 0 0,
-      transparent 0,
-      transparent 80px,
-      black 21px
-    );
-    background-color: #d1645b;
-  }
-
-  .ranking {
-    margin-right: 18%;
-  }
-
-  .coding {
-    margin-right: 10%;
-  }
-
-  .middle {
-    background-color: #d1645b;
-    border: 10px solid #eb8c80;
-    width: 27vw;
-    height: 27vw;
-  }
-
-  .ranking {
-    font-size: calc(0.2rem + 4vw);
-    margin-right: 28%;
-  }
-
-  .coding {
-    margin-right: 22%;
-    font-size: calc(0.2rem + 4vw);
-  }
-
-  .team {
-    font-size: calc(0.2rem + 4vw);
-  }
-
-  .AGB {
-    font-size: calc(0.2rem + 4vw);
-  }
-
-  .game {
-    margin-top: 10px;
-    font-size: calc(0.2rem + 4vw);
-  }
-
-  /*--------Main Team Container-------*/
-
-  .uwe {
-    height: 45vh;
-  }
-
-  .uwezwei {
-    display: table;
-    margin: 0 auto;
-  }
-
-  .controller {
-    display: none;
-  }
-
-  .controllerhidden {
-    display: block;
-    width: 25vw;
-    margin: 0 auto;
-  }
-}
-
 /*-------------------Tablet--------------------*/
-  
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
-
-    /*--------header-------*/
-
-    .whitDiv {
-        height: 20vh;
-    }
-    .redDiv {
-        height: 20vh;
-    }
-
-    .overview{
-
-        margin-top: 15%;
-       
-    }
-
-    /*--------Div Button-------*/
-
-    .finalproject{
-        margin-top: 10%;
-    }
-
-
-    .topLeft, .bottomLeft, .topRight, .bottomRight {
-        margin: 5px 0; 
-    }
-
-    .bottomLeft {
-        -webkit-mask-image: radial-gradient(circle 150px at 100% 0, transparent 0, transparent 120px, black 21px);
-        background-color: #945d4e;
-    }
-    
-    .topLeft {
-        -webkit-mask-image: radial-gradient(circle 150px at 100% 100%, transparent 0, transparent 120px, black 21px);
-        background-color: #d1645b;
-    }
-    
-    .topRight, .bottomRight {
-        flex: 1;
-    }
-    
-    .topRight {
-        -webkit-mask-image: radial-gradient(circle 150px at 0 100%, transparent 0, transparent 120px, black 21px);
-        background-color: #945d4e;
-    }
-    
-    .bottomRight {
-        -webkit-mask-image: radial-gradient(circle 150px at 0 0, transparent 0, transparent 120px, black 21px);
-        background-color: #d1645b;
-    }
-
-    .middle {
-        width: 22vw;
-        height: 22vw;
-        background-color: #d1645b;
-        border: 10px solid #eb8c80;
-    }
-
-    .ranking{
-        font-size: calc(0.2rem + 4vw);
-        margin-right: 28%;
-    }
-    
-    .coding{
-        margin-right: 22%;
-        font-size: calc(0.2rem + 4vw);
-    }
-    
-    .team{
-    
-        font-size: calc(0.2rem + 4vw);
-    }
-    
-    .AGB{
-
-        font-size: calc(0.2rem + 4vw);
-    }
-    
-    .game {
-        margin-top: 10px;
-        font-size: calc(0.2rem + 4vw);
-    }
-    
-    .middle {
-        width: 22vw;
-        height: 22vw;
-        background-color: #d1645b;
-        border: 10px solid #eb8c80;
-    }
-
-
-    /*--------Main Team Container-------*/
-
-    .teamTitle{
-        font-family: 'Actor', sans-serif;
-        margin-top: 5%;
-        color: #ffff;
-        text-align: center;
-        font-size: calc(1rem + 4vw);
-        letter-spacing: 0.1em;
-    }
-
-
-    .middleWrapper{
-        height: 45vh;
-
-    }
-    
-    
-    .teamWrapper{
-        display: table;
-        margin: 0 auto;
-    }
-    
-    .controllerhidden{
-       display: block;
-       width: 25vw;
-       margin: 0 auto;
-    }
-
-    .controller{
-    display: none;
-    }
-    
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   /*--------header-------*/
@@ -785,96 +375,8 @@ main {
     height: 20vh;
   }
 
-/*-------------------Small Laptops--------------------*/
-  
-  @media only screen and (min-width: 1025px) and (max-width: 1200px) {
-
-    /*--------Header-------*/
-
-    .whitDiv {
-        height: 25vh;
-    }
-    .redDiv {
-        height: 25vh;
-    }
-
-    /*--------Div Button-------*/
-
-    .bottomLeft {
-        -webkit-mask-image: radial-gradient(circle 150px at 100% 0, transparent 0, transparent 150px, black 21px);
-        background-color: #945d4e;
-    }
-    
-    .topLeft {
-        -webkit-mask-image: radial-gradient(circle 150px at 100% 100%, transparent 0, transparent 150px, black 21px);
-        background-color: #d1645b;
-    }
-    
-    .topRight, .bottomRight {
-        flex: 1;
-    }
-    
-    .topRight {
-        -webkit-mask-image: radial-gradient(circle 150px at 0 100%, transparent 0, transparent 150px, black 21px);
-        background-color: #945d4e;
-    }
-    
-    .bottomRight {
-        -webkit-mask-image: radial-gradient(circle 150px at 0 0, transparent 0, transparent 150px, black 21px);
-        background-color: #d1645b;
-    }
-
-    .ranking{
-  
-        margin-right: 22%;
-    }
-    
-    .coding{
-    margin-right: 12%;
-    }
-
-    
-
-  }
-  
- /*-------------------Desktop--------------------*/
-  
-  @media only screen and (min-width: 1201px) and (max-width: 1600px) {
-
-    /*--------Div Button-------*/
-
-    .bottomLeft {
-        -webkit-mask-image: radial-gradient(circle 150px at 100% 0, transparent 0, transparent 175px, black 21px);
-        background-color: #945d4e;
-    }
-    
-    .topLeft {
-        -webkit-mask-image: radial-gradient(circle 150px at 100% 100%, transparent 0, transparent 175px, black 21px);
-        background-color: #d1645b;
-    }
-    
-    .topRight, .bottomRight {
-        flex: 1;
-    }
-    
-    .topRight {
-        -webkit-mask-image: radial-gradient(circle 150px at 0 100%, transparent 0, transparent 175px, black 21px);
-        background-color: #945d4e;
-    }
-    
-    .bottomRight {
-        -webkit-mask-image: radial-gradient(circle 150px at 0 0, transparent 0, transparent 175px, black 21px);
-        background-color: #d1645b;
-    }
-
-    .ranking{
-  
-        margin-right: 20%;
-    }
-    
-    .coding{
-    margin-right: 12%;
-    }
+  .overview {
+    margin-top: 15%;
   }
 
   /*--------Div Button-------*/
@@ -981,15 +483,6 @@ main {
     text-align: center;
     font-size: calc(1rem + 4vw);
     letter-spacing: 0.1em;
-  }
-
-  .uwe {
-    height: 45vh;
-  }
-
-  .uwezwei {
-    display: table;
-    margin: 0 auto;
   }
 
   .controllerhidden {
@@ -1132,7 +625,7 @@ main {
 
 /*-------------------Ultra Wide--------------------*/
 
-@media only screen and (min-width: 1601px) {
+@media only screen and (min-width: 1601px) and (max-width: 1920px) {
   /*--------Div Button-------*/
 
   .bottomLeft {
@@ -1189,9 +682,19 @@ main {
 
   .middle {
     width: 22vw;
-    height: 24vw;
+    height: 22vw;
     background-color: #d1645b;
     border: 20px solid #eb8c80;
+  }
+}
+@media only screen and (min-width: 1921px) {
+  .side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45%;
+    position: relative;
+    margin: 0 4%;
   }
 }
 
@@ -1333,4 +836,3 @@ main {
     1500px 2950px rgba(113, 124, 179, 1), 1300px 2300px rgba(209, 100, 91, 1),
     1400px 2200px rgba(231, 200, 140, 1), 1700px 2150px rgba(240, 154, 100, 1);
 }
-  }
