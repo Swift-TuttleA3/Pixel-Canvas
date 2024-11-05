@@ -1,44 +1,41 @@
-
 ul {
-    list-style: none;
+  list-style: none;
 }
 
-body {
+/* body {
     background-color: #f5cfb0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100dvw;
     height: 100dvh;
-}
+} */
 
 .user-stats {
-      font-family: 'Press Start 2P', cursive;
-      background-color: #d1655bc2;
-      color: #ffffff;
-      padding: 20px;
-      border: 2px solid #ffffff;
-      border-radius: 10px;
-      text-align: center;
-      
-    }
+  font-family: "Press Start 2P", cursive;
+  background-color: #d1655bc2;
+  color: #ffffff;
+  padding: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  text-align: center;
+}
 
 .user-stats h1 {
-      color: #329694;
-      font-size: xx-large;
-      -webkit-text-stroke: 0.5px rgba($color: #000000, $alpha: 0.5);
-    }
+  color: #329694;
+  font-size: xx-large;
+  -webkit-text-stroke: 0.5px rgba($color: #000000, $alpha: 0.5);
+}
 
 .user-stats div {
-      margin: 10px 0;
-    }
+  margin: 10px 0;
+}
 
 span {
-    color: black;
-    font-weight: bolder;
+  color: black;
+  font-weight: bolder;
 }
 
 .data {
-    font-size: medium;
+  font-size: medium;
 }
-

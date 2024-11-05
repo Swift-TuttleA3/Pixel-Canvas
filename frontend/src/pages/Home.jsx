@@ -109,7 +109,7 @@ function Home() {
 
       <main>
         <h1 className="overview">OVERVIEW</h1>
-        <div className="container">
+        <div className="container" id="midcontainer">
           <div className="side">
             <div className="topLeft">
               <h1 className="ranking">RANKING</h1>
