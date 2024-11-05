@@ -18,8 +18,11 @@ function App() {
     <Routes>
       <Route path="/" element={<HomeLayout />}>
         <Route index element={<Home />} />
-      <Route path="/" element={<Layout />}>
       </Route>
+      <Route path="/canvas" element={<CanvasLayout />}>
+        <Route index element={<Canvas />} />
+      </Route>
+      <Route path="/" element={<Layout />}>
         <Route path="/login" element={<Login />} />
         {/* <Route
           path="/statistik"
@@ -48,9 +51,6 @@ function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/agb" element={<AGB />} />
         <Route path="*" element={<Pagenotfound />} />
-      </Route>
-      <Route path="/canvas" element={<CanvasLayout />}>
-        <Route index element={<Canvas />} />
       </Route>
     </Routes>
   );
