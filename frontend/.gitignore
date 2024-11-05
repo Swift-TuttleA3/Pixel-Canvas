@@ -1,15 +1,14 @@
 # Ignoriere alle Dateien
 *
 
-#components
-!/src/components/Layout.jsx
+
 #pages
 !/src/pages/Home.jsx
-!/src/pages/Statistik.jsx
+
 
 #stylepages
 !/src/styles/AGB.scss
 !/src/styles/Home.scss
-!/src/styles/Statistik.scss
+
 
 !tailwind.config.js
