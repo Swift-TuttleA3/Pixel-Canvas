@@ -1,6 +1,4 @@
-## Installation: npm install
-
-Hey, willkommen zu unserer Pixel-Leinwand! Hier sind die Schritte, um loszulegen und mit zu gestalten:
+# Hey, willkommen zu unserer Pixel-Leinwand! Hier sind die Schritte, um loszulegen und mit zu gestalten:
 
 1. Anmeldung und Registrierung:
    Bist du neu hier? Registriere dich einfach mit deinem Benutzernamen, deiner E-Mail-Adresse und einem Passwort.
@@ -48,6 +46,16 @@ Logout: Klicke im Menü auf "Logout", um dich abzumelden.
    Allzu pornografische Darstellungen und prinzipiell alle extremistische Inhalte jedweder Art sind auf der Pixel - Leinwand nicht gestattet.
 
 Viel Spaß beim Erschaffen eines gemeinsamen Pixel-Klumnpens!
+
+## Installation:
+
+### npm install
+
+### in backend: npm run server
+
+### in frontend: npm run dev
+
+### localhost:3000
 
 Hey, welcome to our Pixel Canvas! Here are the steps to get started and join in the creation:
 
