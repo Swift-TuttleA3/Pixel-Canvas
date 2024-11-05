@@ -47,3 +47,21 @@ button li {
   font-family: system-ui, sans-serif;
   cursor: pointer;
 }
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin-right: 10px;
+}
+
+nav ul li a {
+  font-size: 2rem;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+}

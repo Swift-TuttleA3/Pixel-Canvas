@@ -257,7 +257,7 @@ function LoginPage() {
           </div>
         </div>
 
-        {/* <!--2 Info--> */}
+        {/* <!--2 Info-->
         <div className="info-box">
           <h2>Let the Pixels Fly</h2>
           <p>
@@ -265,7 +265,7 @@ function LoginPage() {
             Bei uns hast du die Chance, die Pixel zu setzen und damit die Chance,
             bei der ersten Pixel-Wars Runde dabei zu sein!
           </p>
-        </div>
+        </div> */}
       </main>
     </body>
   );
