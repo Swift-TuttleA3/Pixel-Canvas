@@ -1,12 +1,7 @@
 @import url(https://fonts.bunny.net/css?family=actor:400|gluten:600);
-@font-face {
-  font-family: 'Press Start 2P';
-  src: url('../assets/fonts/press_start_2p/PressStart2P.ttf');
-}
 
 html,
 body {
-  font-family: 'Press Start 2P', sans-serif;
   margin: 0;
   overflow-x: hidden;
   position: relative;
@@ -29,30 +24,31 @@ body {
   align-items: center;
 }
 
-.first {
-  position: relative;
-  width: 55vw;
-  height: 40vh;
-  background-color: rgba(255, 255, 255, 0.603);
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
-  z-index: 2;
+.whiteDiv {
+    position: relative;
+    width: 55vw;
+    height: 40vh;
+    background-color: rgba(255, 255, 255, 0.603);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    z-index: 2;
 }
 
-.second {
-  background-image: url(/images/pixel.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 40em;
-  margin-top: 18%;
-  border-top-left-radius: 200px;
-  border-bottom-left-radius: 200px;
-  width: 51vw;
-  height: 40vh;
-  background-color: #d1655bc2;
-  margin-left: -7vw;
-  z-index: 1;
-  padding: 0;
+
+.redDiv {
+    background-image: url(/images/pixel.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:40em;
+    margin-top: 18%;
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+    width: 51vw;
+    height: 40vh;
+    background-color: #d1655bc2;
+    margin-left: -7vw;
+    z-index: 1;
+    padding: 0;
 }
 
 .play {
@@ -99,12 +95,12 @@ body {
 }
 
 #catchphrase {
-  font-size: calc(0.5rem + 1vw);
-  color: #f5cfb0;
-  font-family: "Actor", sans-serif;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 0;
+    font-size: calc(0.5rem + 1vw);
+    color: #f5cfb0;
+    font-family: 'Actor', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -5rem;
 }
 
 #titlePixel {
@@ -118,12 +114,12 @@ body {
 }
 
 #titleWars {
-  font-family: "Gluten", display;
-  text-align: center;
-  color: #f5cfb0;
-  font-size: calc(1rem + 9vw);
-  text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
-  margin-top: 0;
+    font-family: 'Gluten', display;
+    text-align: center;
+    color: #f5cfb0;
+    font-size: calc(1rem + 9vw);
+    text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
+    margin-top: -6rem;
 }
 
 /*-------------------------------------------------------Main-------------------------------------------------------------------*/
@@ -138,8 +134,11 @@ body {
 }
 
 main {
-  position: relative;
-  z-index: 3;
+    position: relative;
+    z-index: 3;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
 }
 
 .container {
@@ -234,12 +233,12 @@ main {
   box-sizing: border-box;
 }
 
-.ranking {
-  font-family: "Gluten", display;
-  text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
-  color: #329694;
-  font-size: calc(1rem + 4vw);
-  margin-right: 5%;
+.ranking{
+    font-family: 'Gluten', display;
+    text-shadow: 4px 3px rgba(0, 0, 0, 0.678);
+    color: #329694;
+    font-size: calc(1rem + 4vw);
+   margin-right: 1px;
 }
 
 .coding {
@@ -304,11 +303,11 @@ main {
   margin: 0 auto;
 }
 
-.uwe {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
+.middleWrapper{
+    display: flex;
+    justify-content: center;  
+    align-items: center;     
+    height: 70vh; 
 }
 
 .bild {
@@ -330,12 +329,12 @@ main {
   letter-spacing: 0.1em;
 }
 
-.uwezwei {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
-  margin-top: -5%;
+.teamWrapper{
+    display: flex;
+    justify-content: center;  
+    align-items: center;  
+    height: 70vh;  
+    margin-top: -5%;
 }
 .controllerhidden {
   display: none;
@@ -649,6 +648,132 @@ main {
 }
 
 /*-------------------Tablet--------------------*/
+  
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    /*--------header-------*/
+
+    .whitDiv {
+        height: 20vh;
+    }
+    .redDiv {
+        height: 20vh;
+    }
+
+    .overview{
+
+        margin-top: 15%;
+       
+    }
+
+    /*--------Div Button-------*/
+
+    .finalproject{
+        margin-top: 10%;
+    }
+
+
+    .topLeft, .bottomLeft, .topRight, .bottomRight {
+        margin: 5px 0; 
+    }
+
+    .bottomLeft {
+        -webkit-mask-image: radial-gradient(circle 150px at 100% 0, transparent 0, transparent 120px, black 21px);
+        background-color: #945d4e;
+    }
+    
+    .topLeft {
+        -webkit-mask-image: radial-gradient(circle 150px at 100% 100%, transparent 0, transparent 120px, black 21px);
+        background-color: #d1645b;
+    }
+    
+    .topRight, .bottomRight {
+        flex: 1;
+    }
+    
+    .topRight {
+        -webkit-mask-image: radial-gradient(circle 150px at 0 100%, transparent 0, transparent 120px, black 21px);
+        background-color: #945d4e;
+    }
+    
+    .bottomRight {
+        -webkit-mask-image: radial-gradient(circle 150px at 0 0, transparent 0, transparent 120px, black 21px);
+        background-color: #d1645b;
+    }
+
+    .middle {
+        width: 22vw;
+        height: 22vw;
+        background-color: #d1645b;
+        border: 10px solid #eb8c80;
+    }
+
+    .ranking{
+        font-size: calc(0.2rem + 4vw);
+        margin-right: 28%;
+    }
+    
+    .coding{
+        margin-right: 22%;
+        font-size: calc(0.2rem + 4vw);
+    }
+    
+    .team{
+    
+        font-size: calc(0.2rem + 4vw);
+    }
+    
+    .AGB{
+
+        font-size: calc(0.2rem + 4vw);
+    }
+    
+    .game {
+        margin-top: 10px;
+        font-size: calc(0.2rem + 4vw);
+    }
+    
+    .middle {
+        width: 22vw;
+        height: 22vw;
+        background-color: #d1645b;
+        border: 10px solid #eb8c80;
+    }
+
+
+    /*--------Main Team Container-------*/
+
+    .teamTitle{
+        font-family: 'Actor', sans-serif;
+        margin-top: 5%;
+        color: #ffff;
+        text-align: center;
+        font-size: calc(1rem + 4vw);
+        letter-spacing: 0.1em;
+    }
+
+
+    .middleWrapper{
+        height: 45vh;
+
+    }
+    
+    
+    .teamWrapper{
+        display: table;
+        margin: 0 auto;
+    }
+    
+    .controllerhidden{
+       display: block;
+       width: 25vw;
+       margin: 0 auto;
+    }
+
+    .controller{
+    display: none;
+    }
+    
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   /*--------header-------*/
@@ -660,8 +785,96 @@ main {
     height: 20vh;
   }
 
-  .overview {
-    margin-top: 15%;
+/*-------------------Small Laptops--------------------*/
+  
+  @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+
+    /*--------Header-------*/
+
+    .whitDiv {
+        height: 25vh;
+    }
+    .redDiv {
+        height: 25vh;
+    }
+
+    /*--------Div Button-------*/
+
+    .bottomLeft {
+        -webkit-mask-image: radial-gradient(circle 150px at 100% 0, transparent 0, transparent 150px, black 21px);
+        background-color: #945d4e;
+    }
+    
+    .topLeft {
+        -webkit-mask-image: radial-gradient(circle 150px at 100% 100%, transparent 0, transparent 150px, black 21px);
+        background-color: #d1645b;
+    }
+    
+    .topRight, .bottomRight {
+        flex: 1;
+    }
+    
+    .topRight {
+        -webkit-mask-image: radial-gradient(circle 150px at 0 100%, transparent 0, transparent 150px, black 21px);
+        background-color: #945d4e;
+    }
+    
+    .bottomRight {
+        -webkit-mask-image: radial-gradient(circle 150px at 0 0, transparent 0, transparent 150px, black 21px);
+        background-color: #d1645b;
+    }
+
+    .ranking{
+  
+        margin-right: 22%;
+    }
+    
+    .coding{
+    margin-right: 12%;
+    }
+
+    
+
+  }
+  
+ /*-------------------Desktop--------------------*/
+  
+  @media only screen and (min-width: 1201px) and (max-width: 1600px) {
+
+    /*--------Div Button-------*/
+
+    .bottomLeft {
+        -webkit-mask-image: radial-gradient(circle 150px at 100% 0, transparent 0, transparent 175px, black 21px);
+        background-color: #945d4e;
+    }
+    
+    .topLeft {
+        -webkit-mask-image: radial-gradient(circle 150px at 100% 100%, transparent 0, transparent 175px, black 21px);
+        background-color: #d1645b;
+    }
+    
+    .topRight, .bottomRight {
+        flex: 1;
+    }
+    
+    .topRight {
+        -webkit-mask-image: radial-gradient(circle 150px at 0 100%, transparent 0, transparent 175px, black 21px);
+        background-color: #945d4e;
+    }
+    
+    .bottomRight {
+        -webkit-mask-image: radial-gradient(circle 150px at 0 0, transparent 0, transparent 175px, black 21px);
+        background-color: #d1645b;
+    }
+
+    .ranking{
+  
+        margin-right: 20%;
+    }
+    
+    .coding{
+    margin-right: 12%;
+    }
   }
 
   /*--------Div Button-------*/
@@ -1120,3 +1333,4 @@ main {
     1500px 2950px rgba(113, 124, 179, 1), 1300px 2300px rgba(209, 100, 91, 1),
     1400px 2200px rgba(231, 200, 140, 1), 1700px 2150px rgba(240, 154, 100, 1);
 }
+  }
