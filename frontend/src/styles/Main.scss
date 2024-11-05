@@ -2,11 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url(https://fonts.bunny.net/css?family=actor:400|gluten:600);
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Gluten', sans-serif;
 }
 
   

@@ -7,7 +7,6 @@ import Header from "./Header";
 function Layout() {
   return (
     <>
-
       <header>
         <Header/>
       </header>

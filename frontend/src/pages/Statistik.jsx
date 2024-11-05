@@ -58,14 +58,16 @@ function UserStats() {
     fetchTotalEntries();
   }, []);
 
+  const percentage = ((clicks / totalEntries) * 100).toFixed(2);
+
   return (
     <div className="user-stats">
       <h1>Hey {username}!</h1>
       <div className="data">Alle Pixel: <span>{totalEntries}</span></div>
       <div className="data">Anzahl deiner Pixel: <span>{clicks}</span></div>
-      {/* <div>Dein Anteil am Ganzen: {percentage}%</div> */}
+      <div>Dein Anteil am Ganzen: <span>{percentage}</span> %</div> 
       <div className="data">Deine Stufe: <span>{tier}</span> von 4</div>
-      <div className="data">Dein Timeout: <span>{timer}</span>ms</div>
+      <div className="data">Dein Timeout: <span>{timer / 1000}</span> Sekunden</div>
       <div><img src={banner} alt="banner" /></div>
     </div>
   );

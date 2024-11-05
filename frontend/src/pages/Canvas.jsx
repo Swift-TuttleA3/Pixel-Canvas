@@ -8,6 +8,7 @@ import Cookies from "js-cookie";
 import WebSocketClient from "../components/WebSocketClient";
 import { Stage, Layer, Rect } from "react-konva";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import TrafficLight from "../components/TrafficLight.jsx"; // Importiere die TrafficLight-Komponente
 
 const Canvas = () => {
   const [selectedColor, setSelectedColor] = useState("red");
@@ -130,8 +131,8 @@ const Canvas = () => {
     let interval;
     if (remainingTime > 0) {
       interval = setInterval(() => {
-        setRemainingTime((prevTime) => prevTime - 1);
-      }, 1);
+        setRemainingTime((prevTime) => prevTime - 10);
+      }, 10);
     }
     return () => clearInterval(interval);
   }, [remainingTime]);
@@ -280,31 +281,32 @@ const Canvas = () => {
             )}
           </div>
           <div
-  id="overlay"
-  className="fixed bottom-0 left-0 w-full flex justify-between items-center p-2 bg-gray-800 text-white"
-  style={{ borderTop: `10px solid ${selectedColor}` }}
->
+            id="overlay"
+            className="fixed bottom-0 left-0 w-full flex justify-between items-center p-2 bg-gray-800 text-white"
+            style={{ borderTop: `10px solid ${selectedColor}` }}
+          >
             <div id="coordinates"
               style={{ width: "200px" }}
               className="flex-1 text-center text-2xl bg-gray-800 p-2">
-    <Coordinates coordinates={coordinates} />
-  </div>
-  <div
-    id="username-canvas"
-    className="flex-1 text-center text-2xl bg-gray-800 p-2"
-    style={{ width: "200px" }} 
-  >
-    You: {username} (Stufe: {tier} Timeout: {(Math.max(0, remainingTime) / 1000).toFixed(3)}s)
-  </div>
-  <button
+              <Coordinates coordinates={coordinates} />
+            </div>
+            <div
+              id="username-canvas"
+              className="flex-1 text-center text-2xl bg-gray-800 p-2"
+              style={{ width: "200px" }}
+            >
+              You: {username} (Stufe: {tier})
+            </div>
+              <TrafficLight id="traffic-light" isGreen={isClickAllowed} />
+            <button
               id="exit-button"
               style={{ width: "200px" }}
-    className="flex-1 text-center text-2xl bg-red-600 hover:bg-red-900 text-white font-bold py-2 px-4 rounded"
-    onClick={handleExit}
-  >
-    Exit
-  </button>
-</div>
+              className="flex-1 text-center text-2xl bg-red-600 hover:bg-red-900 text-white font-bold py-2 px-4 rounded"
+              onClick={handleExit}
+            >
+              Exit
+            </button>
+          </div>
         </>
       ) : (
         navigate("/login")

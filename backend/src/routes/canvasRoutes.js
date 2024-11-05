@@ -4,6 +4,16 @@ import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
+// Route zum Abrufen der Gesamtanzahl der Canvas-Einträge
+router.get("/count", authMiddleware, async (req, res) => {
+  try {
+    const totalEntries = await Canvas.countDocuments();
+    res.json({ totalEntries });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 // Route zum Abrufen aller Canvas-Daten
 router.get("/", authMiddleware, async (req, res) => {
   try {
@@ -24,16 +34,6 @@ router.get("/:id", authMiddleware, async (req, res) => {
     } else {
       res.status(404).json({ message: "Canvas entry not found" });
     }
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
-// Route zum Abrufen der Gesamtanzahl der Canvas-Einträge
-router.get("/count", authMiddleware, async (req, res) => {
-  try {
-    const totalEntries = await Canvas.countDocuments();
-    res.json({ totalEntries });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
