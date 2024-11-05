@@ -91,7 +91,7 @@ function LoginPage() {
   }, []);
 
   return (
-    <body>
+    <>
       <header>
         
         <div id="stars"></div>
@@ -240,7 +240,7 @@ function LoginPage() {
           </p>
         </div> */}
       </main>
-    </body>
+    </>
   );
 }
 
