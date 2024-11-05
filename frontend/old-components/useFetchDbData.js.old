@@ -1,0 +1,19 @@
+const handleRenderLocalStorageData = () => {
+  const cachedCanvasData = localStorage.getItem("canvasData");
+  if (cachedCanvasData) {
+    try {
+      const parsedData = JSON.parse(cachedCanvasData);
+      if (Array.isArray(parsedData)) {
+        console.log(parsedData);
+        setRectangles(parsedData);
+      } else {
+        console.warn("Cached data is not an array");
+      }
+    } catch (error) {
+      console.error("Error parsing cached data:", error);
+      localStorage.removeItem("canvasData");
+    }
+  }
+};
+
+export default handleRenderLocalStorageData;

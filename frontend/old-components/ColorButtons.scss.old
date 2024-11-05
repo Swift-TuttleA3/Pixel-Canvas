@@ -1,6 +1,6 @@
 // Color Button Wrapper Styling
 #buttonwrap {
-  background-color: rgb(40, 41, 41);
+  background-color:#848484cf;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
@@ -12,7 +12,7 @@
   height: 100vh;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  
+
   // Schatten Effekte für die Buttons
   // die insets sind die Farben für die Schatten
 
@@ -20,28 +20,35 @@
     box-shadow: inset -20px 20px 40px $inset1, inset 20px -20px 40px $inset2;
     transform: translateY(2px);
   }
+
   // Einzelne Buttons
   #color-button {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 30px;
-    border: none;
+    width: 2em;
+    height: 2em;
+    border-radius: 5px;
+    border: 0.5px dotted #000000;
     margin: 0 auto; // Zentrierung im Grid
+    padding: 0.2em;
     cursor: pointer;
-    transition: 0.2;
+    transition: 0.2s;
     // hier einfach bestimmen welche Farbe oder Eigenschaften die Effekte haben sollen
     &:focus {
-      @include box-shadow(#6c6d6d78, #898a8a80); 
+      @include box-shadow(#6c6d6d78, #898a8a80);
     }
-    
+
     &:hover {
       @include box-shadow(#6c6d6d7a, #898a8a79);
     }
-    
+
     &:active {
       @include box-shadow(#b6bbbb49, #898a8a85);
       transform: translateY(4px);
     }
+  }
+
+  .selected {
+    border: 2px solid #000000;
+    transform: scale(1.6);
   }
 
   // Responsivness
@@ -66,5 +73,4 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
-
 }

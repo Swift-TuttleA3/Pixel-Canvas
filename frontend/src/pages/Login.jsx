@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import teams from "../data/teams";
 import { register, login, loginWithGoogle } from "../services/api.js";
+import Cookies from "js-cookie"; // Import js-cookie
 
 // Login und Signup 
 
@@ -26,20 +27,26 @@ const LoginPage = () => {
     }
   };
   
-  const handleLoginSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const data = await login(email, password);
-      localStorage.setItem('token', data.token); 
-      setMessage({ type: 'success', text: "Erfolgreicher Login!" });
-      window.location.href = "/profile";
-    } catch (err) {
-      setMessage({ type: 'error', text: err.message });
-    }
+
+const handleLoginSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const data = await login(email, password);
+    const token = data.credentials; // Token aus dem Header extrahieren
+    Cookies.set('token', token, { path: '/' }); // Token im Cookie speichern
+    
+    const localSavedToken = Cookies.get('token'); // Token aus dem Cookie lesen
+    console.log('Gespeicherter Token:', localSavedToken); // Token im Browser anzeigen
+    
+    setMessage({ type: 'success', text: "Erfolgreicher Login!" });
+    window.location.href = "/canvas"; // Weiterleitung zur Profilseite
+  } catch (err) {
+    setMessage({ type: 'error', text: err.message });
+  }
   };
+  
 
   return (
-    
     <div className="loginwrap">
       {message && (
         <div className={`message ${message.type}`}>{message.text}</div>
@@ -123,8 +130,7 @@ const LoginPage = () => {
               required
             />
             <button type="submit">Login</button>
-            <button onClick={loginWithGoogle}>Login with Google</button>
-       
+            <button type="button" onClick={loginWithGoogle}>Login with Google</button>
           </form>
         </div>
       </div>

@@ -7,8 +7,6 @@ import einhornbanner from '../img/einhornbanner.png';
 import profilblau from '../img/profilblau.png';
 import shop from '../img/shop.png';
 
-
-
 function Statistik() {
   // Verweise für die Elemente
   const titleRef = useRef(null);
@@ -164,5 +162,3 @@ return (
 
   )
 }
-
-export default Statistik

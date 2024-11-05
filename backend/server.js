@@ -5,7 +5,6 @@ import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-
 import routes from "./routes/routes.js";
 import errorHandler from "./middleware/errorMiddleware.js";
 
@@ -14,10 +13,22 @@ dotenv.config();
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-// CORS-Anfragen vom Frontend erlauben
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:27017",
+  "http://localhost:5173",
+  "http://localhost:5000",
+];
+
 const corsOptions = {
-  origin: "http://localhost:3000", // Frontend URL
-  credentials: true, // Cookies erlauben
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
   optionsSuccessStatus: 200,
 };
 
@@ -28,7 +39,9 @@ app.use(cors(corsOptions));
 
 // Routes
 app.use("/api", routes);
+app.use("/api/canvas", canvasRoutes);
 app.use(errorHandler);
+app.use(express.static("public"));
 
 // Session Middleware
 // app.use(session({

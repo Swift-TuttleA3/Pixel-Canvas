@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { getProfile, editProfile, changePassword } from "../services/api.js";
 
 const ProfilePage = () => {
@@ -10,7 +10,7 @@ const ProfilePage = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState(null);
-  const [ws, setWs] = useState(null);
+
 
   // Error Nachricht nach 5 Sekunden ausblenden
   useEffect(() => {
@@ -27,34 +27,13 @@ const ProfilePage = () => {
         setUsername(data.username);
         setEmail(data.email);
         setTeam(data.team);
-
-        // WebSocket connection
-        const token = localStorage.getItem("token");
-        const ws = new WebSocket(`ws://localhost:3131?token=${token}`);
-        ws.onopen = () => {
-          console.log("WebSocket connection established");
-          ws.send(
-            JSON.stringify({
-              type: "testMessage",
-              message: "Hello from client",
-            })
-          );
-        };
-        ws.onmessage = (event) => {
-          console.log("Message from server:", event.data);
-        };
-        ws.onclose = () => {
-          console.log("WebSocket connection closed");
-        };
-        ws.onerror = (error) => {
-          console.error("WebSocket error:", error);
-        };
-        setWs(ws);
       } catch (err) {
         setMessage({ type: "error", text: "Fehler beim Laden des Profils" });
       }
     };
 
+
+    
     fetchProfile();
   }, []);
 

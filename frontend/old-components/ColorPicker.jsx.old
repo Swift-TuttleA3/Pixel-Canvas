@@ -1,5 +1,6 @@
+
 import PropTypes from "prop-types";
-import colors from "./colors";
+import colors from "../src/utilities/colors";
 
 /**
  * ColorPicker component allows users to select a color from a predefined list.

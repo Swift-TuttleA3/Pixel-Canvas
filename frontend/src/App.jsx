@@ -1,7 +1,6 @@
-// frontend/App.jsx
-
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
+import CanvasLayout from "./components/CanvasLayout.jsx";
 import Canvas from "./pages/Canvas.jsx";
 import Login from "./pages/Login.jsx";
 import Home from "./pages/Home.jsx";
@@ -19,14 +18,6 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route
-          path="/canvas"
-          element={
-            // <PrivateRoute>
-              <Canvas />
-            // </PrivateRoute>
-          }
-        />
         <Route
           path="/statistik"
           element={
@@ -54,6 +45,9 @@ function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/agb" element={<AGB />} />
         <Route path="*" element={<Pagenotfound />} />
+      </Route>
+      <Route path="/canvas" element={<CanvasLayout />}>
+        <Route index element={<Canvas />} />
       </Route>
     </Routes>
   );

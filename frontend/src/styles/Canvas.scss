@@ -1,20 +1,62 @@
-$cell-size: 5px;
+$colors: (
+    color0: #454545,
+    color1: #329694,
+    color2: #d7a3d5e6,
+    color3: #a08888,
+    color4: #b0a5ae,
+    color5: #858585,
+    color7: #EB8C80,
+    color8: #266b60,
+    color10: #4e7b7b,
+);
+@mixin pixel-gradient($colors) {
+    background: linear-gradient(
+        to bottom,
+        map-get($colors, color0) 0%,
+        map-get($colors, color1) 9.28%,
+        map-get($colors, color2) 18.28%,
+        map-get($colors, color4) 31.56%,
+        map-get($colors, color3) 42.84%,
+        map-get($colors, color5) 50.84%,
+        map-get($colors, color10) 59.12%,
+        map-get($colors, color8) 72.4%,
+        map-get($colors, color7) 84.68%,
+        map-get($colors, color3) 96.84%,
+        map-get($colors, color0) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 100% 100%;
+    background-position: 0 0;
+}
 
-#canvas {
+body {
+  font-family: 'Gluten', sans-serif;
+  overflow: hidden;
+}
+
+.canvas-layout {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 1rem;
+  align-items: center;
+  background-color: #52396a;
 }
 
-.canvas-row {
-  display: flex;
+#canvas-container {
+  width: 100%;
+  height: 100%;
+  max-width: 3840px;
+  max-height: 2160px;
+  border-radius: 5px;
+  image-rendering: pixelated;
+  overflow: hidden;
+  background-color: rgb(255, 249, 240);
 }
 
-// Styling für die einzelnen Zellen
-
-.canvas-cell {
-  width: $cell-size;
-  height: $cell-size;
-  border: 0.1px solid lightwhite;
+.pixelated {
+  image-rendering: pixelated;
 }

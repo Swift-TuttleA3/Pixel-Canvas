@@ -1,3 +1,35 @@
+$colors: (
+    color0: #454545,
+    color1: #329694,
+    color2: #d7a3d5e6,
+    color3: #ceadad,
+    color4: #E3D3E0,
+    color5: #FFFFFF,
+    color7: #EB8C80,
+    color8: #266b60,
+    color10: #5F9695,
+);
+@mixin pixel-gradient($colors) {
+    background: linear-gradient(
+        to bottom,
+        map-get($colors, color0) 0%,
+        map-get($colors, color1) 9.28%,
+        map-get($colors, color2) 18.28%,
+        map-get($colors, color4) 31.56%,
+        map-get($colors, color3) 42.84%,
+        map-get($colors, color5) 50.84%,
+        map-get($colors, color10) 59.12%,
+        map-get($colors, color8) 72.4%,
+        map-get($colors, color7) 84.68%,
+        map-get($colors, color3) 96.84%,
+        map-get($colors, color0) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 100% 100%;
+    background-position: 0 0;
+}
 // Navbar Styling 
 #navbar{
   width: 8vw;
@@ -6,8 +38,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(40, 41, 41);
-  color: white;
+  background-color:#848484cf;
+
   position: fixed;
   left: 0;
   top: 0;
@@ -18,32 +50,44 @@ nav ul {
   flex-direction: column;
   align-items: center;
   list-style-type: none;
-  gap: 0.5em;
+  gap: 3em;
 }
 nav a {
   text-decoration: none;
-  color: yellow;
+  color: rgb(63, 24, 0);
   padding: 0.5em;
+  font-size: 1.2em;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.712);
+  font-style: oblique;
 }
 
 nav li a {
   display: block;
-  padding: 0.25em;
+  padding: 0.5em;
   text-decoration: none;
 }
 
 nav li a:hover {
-  text-shadow: 1px 1px 2px black;
-  color: lime;
-  scale: 1.1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.158);
+  color: rgb(252, 255, 216);
+  transform: scale(1.5) translateX(1.5em);
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+  text-decoration: underline 3px red;
+    @include pixel-gradient($colors);
+}
+
+nav li a {
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
+  text-decoration: none;
 }
 
 nav li {
-  font-family: system-ui, sans-serif;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 0.8em;
   cursor: pointer;
 }
 
 button li {
-  font-family: system-ui, sans-serif;
+  font-family: 'Press Start 2P', sans-serif;
   cursor: pointer;
 }

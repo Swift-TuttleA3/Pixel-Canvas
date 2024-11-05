@@ -5,8 +5,8 @@ const ReadOnlyCanvas = ({ rectangles }) => {
   return (
     <div>
       <Stage
-        width={480}
-        height={320}
+        width={768}
+        height={512}
         style={{ border: "5px solid black", cursor: "not-allowed" }}
       >
         <Layer>

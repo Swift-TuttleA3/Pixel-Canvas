@@ -1,10 +1,8 @@
 const Coordinates = ({ coordinates }) => {
   return (
-    <div>
-      <h1 style={{ textDecoration: "underline" }}>
-        X: {coordinates.x} Y: {coordinates.y}
-      </h1>
-    </div>
+    <div id="coordinates">
+      X:   {Math.floor(coordinates.x * 2)} Y:   {Math.floor(coordinates.y * 2)}
+     </div>
   );
 };
 

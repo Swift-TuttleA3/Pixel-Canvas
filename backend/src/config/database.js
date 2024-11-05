@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-
 dotenv.config();
 
 const connectDB = async () => {
@@ -16,9 +15,11 @@ const connectDB = async () => {
 const canvasConnection = mongoose.createConnection(
   process.env.CANVAS_MONGO_URI
 );
+
 canvasConnection.on("connected", () => {
   console.log("Canvas MongoDB connected");
 });
+
 canvasConnection.on("error", (err) => {
   console.error(`Canvas MongoDB connection error: ${err.message}`);
 });

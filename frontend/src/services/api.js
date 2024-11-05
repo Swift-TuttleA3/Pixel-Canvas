@@ -1,13 +1,13 @@
 // api.js
 
-const API_URL = 'http://localhost:5000/api';  // Backend URL
+const API_URL = "http://localhost:5000/api"; // Backend URL
 
 // Prüfen, ob die Antwort JSON enthält
 const parseJSON = async (response) => {
   try {
     return await response.json();
   } catch (e) {
-    throw new Error('Unerwartetes Antwortformat vom Server');
+    throw new Error("Unerwartetes Antwortformat vom Server");
   }
 };
 
@@ -15,21 +15,21 @@ const parseJSON = async (response) => {
 export const register = async (username, email, password, team) => {
   try {
     const response = await fetch(`${API_URL}/register`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password, team }),
-      credentials: 'include', // Cookies mit Anfrage senden
+      credentials: "include", // Cookies mit Anfrage senden
     });
 
     const data = await parseJSON(response);
 
     if (!response.ok) {
-      throw new Error(data.msg || 'Registrierung fehlgeschlagen');
+      throw new Error(data.msg || "Registrierung fehlgeschlagen");
     }
 
     return data;
   } catch (error) {
-    console.error('Registrierungsfehler:', error.message);
+    console.error("Registrierungsfehler:", error.message);
     throw error;
   }
 };
@@ -38,21 +38,21 @@ export const register = async (username, email, password, team) => {
 export const login = async (email, password) => {
   try {
     const response = await fetch(`${API_URL}/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
-      credentials: 'include',
+      credentials: "include",
     });
 
     const data = await parseJSON(response);
 
     if (!response.ok) {
-      throw new Error(data.msg || 'Login fehlgeschlagen');
+      throw new Error(data.msg || "Login fehlgeschlagen");
     }
 
     return data;
   } catch (error) {
-    console.error('Login error:', error.message);
+    console.error("Login error:", error.message);
     throw error;
   }
 };
@@ -61,19 +61,19 @@ export const login = async (email, password) => {
 export const getProfile = async () => {
   try {
     const response = await fetch(`${API_URL}/profile`, {
-      method: 'GET',
-      credentials: 'include',
+      method: "GET",
+      credentials: "include",
     });
 
     const data = await parseJSON(response);
 
     if (!response.ok) {
-      throw new Error(data.msg || 'Profilabruf fehlgeschlagen.');
+      throw new Error(data.msg || "Profilabruf fehlgeschlagen.");
     }
 
     return data;
   } catch (error) {
-    console.error('Fehler beim Abrufen des Profils:', error.message);
+    console.error("Fehler beim Abrufen des Profils:", error.message);
     throw error;
   }
 };
@@ -82,23 +82,23 @@ export const getProfile = async () => {
 export const editProfile = async (username, email, team) => {
   try {
     const response = await fetch(`${API_URL}/profile`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ username, email, team }),
-      credentials: 'include', 
+      credentials: "include",
     });
 
     const data = await parseJSON(response);
 
     if (!response.ok) {
-      throw new Error(data.msg || 'Fehler bei Profilupdate');
+      throw new Error(data.msg || "Fehler bei Profilupdate");
     }
 
     return data;
   } catch (error) {
-    console.error('Profiledit Fehler:', error.message);
+    console.error("Profiledit Fehler:", error.message);
     throw error;
   }
 };
@@ -107,23 +107,23 @@ export const editProfile = async (username, email, team) => {
 export const changePassword = async (oldPassword, newPassword) => {
   try {
     const response = await fetch(`${API_URL}/change-password`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ oldPassword, newPassword }),
-      credentials: 'include', 
+      credentials: "include",
     });
 
     const data = await parseJSON(response);
 
     if (!response.ok) {
-      throw new Error(data.msg || 'Fehler beim Ändern des Passworts');
+      throw new Error(data.msg || "Fehler beim Ändern des Passworts");
     }
 
     return data;
   } catch (error) {
-    console.error('Fehler bei Passwortänderung:', error.message);
+    console.error("Fehler bei Passwortänderung:", error.message);
     throw error;
   }
 };
@@ -132,22 +132,22 @@ export const changePassword = async (oldPassword, newPassword) => {
 export const getUsers = async () => {
   try {
     const response = await fetch(`${API_URL}/users`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      credentials: 'include', 
+      credentials: "include",
     });
 
     const data = await parseJSON(response);
 
     if (!response.ok) {
-      throw new Error(data.msg || 'Benutzerabruf fehlgeschlagen.');
+      throw new Error(data.msg || "Benutzerabruf fehlgeschlagen.");
     }
 
     return data;
   } catch (error) {
-    console.error('Fehler beim Abrufen der Benutzer:', error.message);
+    console.error("Fehler beim Abrufen der Benutzer:", error.message);
     throw error;
   }
 };
@@ -156,19 +156,19 @@ export const getUsers = async () => {
 export const logout = async () => {
   try {
     const response = await fetch(`${API_URL}/logout`, {
-      method: 'POST',
-      credentials: 'include',
+      method: "POST",
+      credentials: "include",
     });
 
     const data = await parseJSON(response);
 
     if (!response.ok) {
-      throw new Error(data.msg || 'Logout fehlgeschlagen');
+      throw new Error(data.msg || "Logout fehlgeschlagen");
     }
 
     return data;
   } catch (error) {
-    console.error('Fehler beim Logout:', error.message);
+    console.error("Fehler beim Logout:", error.message);
     throw error;
   }
 };

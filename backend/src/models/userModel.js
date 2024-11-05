@@ -22,6 +22,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  clicks: {
+    type: Number,
+    default: 0,
+  },
+  timer: {
+    type: Number,
+    default: 10000, // 10 Sekunden Timeout als Standard
+  },
+  tier: {
+    type: Number,
+    default: 1, // Stufe des Spielers gibt an, welchen bonus er auf timeout erhält
+  },
   isAdmin: {
     type: Boolean,
     default: false,
