@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import "../styles/Home.scss"; // Dein CSS
 import CarPixel from "../img/CarPixel.png";
 import logocontroller from "../img/logocontroller.png";
+import NavbarHome from "../components/NavbarHome.jsx"; // burger-menu angeklatscht :)
 
 function Home() {
   // Verweise für die Elemente
@@ -53,38 +54,18 @@ function Home() {
       });
     };
 
-    // const handleMouseMove = (e) => {
-    //   console.log("test")
-    //   layers.forEach(layer => {
-    //     layer.elements.forEach(star => {
-    //       const rect = star.getBoundingClientRect();
-    //       const starX = rect.left + rect.width / 2;
-    //       const starY = rect.top + rect.height / 2;
-
-    //       const deltaX = e.clientX - starX;
-    //       const deltaY = e.clientY - starY;
-
-    //       const newX = deltaX * layer.movementFactor;
-    //       const newY = deltaY * layer.movementFactor;
-
-    //       star.style.transform = `translate(${newX}px, ${newY}px)`;
-    //     });
-    //   });
-    // };
-
     document.addEventListener("mousemove", handleMouseMove);
-
     document.addEventListener("touchmove", handleMouseMove);
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
-
-      document.addEventListener("touchmove", handleMouseMove);
+      document.removeEventListener("touchmove", handleMouseMove);
     };
   }, []);
 
   return (
     <div className="body">
+      <NavbarHome /> 
       <div className="headerDiv">
         <div className="whiteDiv">
           <h1 id="title" ref={titleRef}>
@@ -93,9 +74,6 @@ function Home() {
           <p id="catchphrase" ref={catchphraseRef}>
             DIGITAL CAREER INSTITUTE
           </p>
-          {/*         <button className="play">
-          <h1 className="playFont">PLAY</h1>
-        </button> */}
         </div>
         <div className="redDiv">
           <h1 id="titlePixel">PIXEL</h1>
