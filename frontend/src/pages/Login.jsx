@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import '../styles/Login.scss';
 import loginbild from '../img/loginbild.png';
 import einhorn from '../img/einhorn.png';
 import hund from '../img/Hund.png';
@@ -90,8 +91,9 @@ function LoginPage() {
   }, []);
 
   return (
-    <>
+    <body>
       <header>
+        
         <div id="stars"></div>
         <div id="stars2"></div>
         <div id="stars3"></div>
@@ -227,8 +229,18 @@ function LoginPage() {
             </div>
           </div>
         </div>
+
+        {/* <!--2 Info-->
+        <div className="info-box">
+          <h2>Let the Pixels Fly</h2>
+          <p>
+            Du hast die Möglichkeit, auf einer Fläche mit vielen anderen zu interagieren.
+            Bei uns hast du die Chance, die Pixel zu setzen und damit die Chance,
+            bei der ersten Pixel-Wars Runde dabei zu sein!
+          </p>
+        </div> */}
       </main>
-    </>
+    </body>
   );
 }
 
