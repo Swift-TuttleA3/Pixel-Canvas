@@ -285,21 +285,21 @@ const Canvas = () => {
   style={{ borderTop: `10px solid ${selectedColor}` }}
 >
             <div id="coordinates"
-              style={{ fontFamily: "monospace", width: "200px" }}
-              className="flex-1 text-center text-xl bg-gray-800 p-2">
+              style={{ width: "200px" }}
+              className="flex-1 text-center text-2xl bg-gray-800 p-2">
     <Coordinates coordinates={coordinates} />
   </div>
   <div
     id="username-canvas"
-    className="flex-1 text-center text-xl bg-gray-800 p-2"
-    style={{ fontFamily: "monospace", width: "200px" }} 
+    className="flex-1 text-center text-2xl bg-gray-800 p-2"
+    style={{ width: "200px" }} 
   >
     You: {username} (Stufe: {tier} Timeout: {(Math.max(0, remainingTime) / 1000).toFixed(3)}s)
   </div>
   <button
               id="exit-button"
-              style={{ fontFamily: "monospace", width: "200px" }}
-    className="flex-1 text-center text-xl bg-red-600 hover:bg-red-900 text-white font-bold py-2 px-4 rounded"
+              style={{ width: "200px" }}
+    className="flex-1 text-center text-2xl bg-red-600 hover:bg-red-900 text-white font-bold py-2 px-4 rounded"
     onClick={handleExit}
   >
     Exit

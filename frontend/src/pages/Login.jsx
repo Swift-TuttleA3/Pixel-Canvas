@@ -102,6 +102,7 @@ function LoginPage() {
       {/* <!--Login Page--> */}
       <main>
         {/* <!--Login Bereich--> */}
+        <div className='login-container'>
         <div className="login-box">
           <div className="login-formula">
             <h1>{isSignup ? "User Signup" : "User Login"}</h1>
@@ -239,6 +240,7 @@ function LoginPage() {
             bei der ersten Pixel-Wars Runde dabei zu sein!
           </p>
         </div> */}
+      </div	>
       </main>
     </>
   );

@@ -40,10 +40,9 @@ $colors: (
   width: 200px;
   max-height: 70vh; 
   overflow-y: auto; 
-  background: $background-image-canvas-container 0 0 / cover, linear-gradient(to top, rgba(0, 0, 0, 0.635), rgba(0, 0, 0, 0.502));
+  background: linear-gradient(to top, #d38866, #f5cfb0);
   border: 1px solid #e2b961;
   border-radius: 5px;
-  box-shadow: 1 5px 20px rgba(104, 104, 104, 0.646);
   z-index: 10000;
   padding: 10px;
 }
@@ -75,11 +74,13 @@ $colors: (
 .dropdown-nav ul {
   list-style-type: none;
   gap: 1em;
+  line-height: 1.5;
   padding: 0;
   margin: 0;
 }
 
 .dropdown-nav li {
+  font-family: 'Gluten', sans-serif;
   font-size: 2em;
   cursor: pointer;
   color: #ffffff;
@@ -93,15 +94,16 @@ $colors: (
 .dropdown-nav li:hover {
   color: #ffffff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-  background-color: #ea563c;
-  border-radius: 5px;
+  background-color: #ff2600;
+  border-radius: 2px;
   text-shadow: 0 0 5px rgb(255, 161, 124);
 }
 
 .logout-button {
+  font-family: 'Gluten', sans-serif;
   margin-top: 10px;
   padding: 5px 10px;
-  background-color: #dc3545;
+  background-color: #ff0019;
   color: white;
   border: none;
   border-radius: 5px;

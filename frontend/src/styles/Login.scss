@@ -1,15 +1,22 @@
+/*    Bitte in den Modulen keine Änderungen höherer Ordnung vornehmen, da diese sonst Nebenwirkungen haben.
+      So kann man z.Bsp. keine Schriftart mehr ändern außer durch Inline-Styles...
+      die Schriftart wird von hier aus einfach in der höheren Ordnung überschrieben.
+      Also entweder dirkt in der main.scss oder in der App.scss die Schriftart ändern oder wir mavcen eine global.scss
+      lg
+
 html,
 body,
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Oswald", sans-serif;
+  font-family: "Oswald", sans-serif;  
 }
 
 :root {
   font-size: 62.5%;
 }
+*/
 
 header {
   background-color: #f5cfb0;
@@ -29,6 +36,10 @@ main {
 }
 
 /* Login-Page-Design */
+.login-container {
+  font-family: "Oswald", sans-serif; /* einfacher div für den extra-font */
+}
+
 .login-box {
   display: flex;
   margin-top: 50px;
