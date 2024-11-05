@@ -2,20 +2,24 @@ ul {
   list-style: none;
 }
 
-/* body {
-    background-color: #f5cfb0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100dvw;
-    height: 100dvh;
-} */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
 .user-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
   font-family: "Press Start 2P", cursive;
   background-color: #d1655bc2;
   color: #ffffff;
-  padding: 20px;
+  padding: 10px;
   border: 2px solid #ffffff;
   border-radius: 10px;
   text-align: center;
