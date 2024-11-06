@@ -54,8 +54,8 @@ const Parallax = () => {
     <>
       <MouseParallaxContainer
         containerStyle={{
-          width: "100dvw",
-          height: "100dvh",
+          width: "100vw",
+          height: "100vh",
         }}
       >
         {renderArr.map((pixel, index) => (
