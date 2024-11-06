@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/Home.scss"; // Dein CSS
 import CarPixel from "../img/CarPixel.png";
 import logocontroller from "../img/logocontroller.png";
@@ -9,11 +9,17 @@ function Home() {
   // Verweise für die Elemente
   const titleRef = useRef(null);
   const catchphraseRef = useRef(null);
+  const [docHeight, setDocHeight] = useState(0);
+
+  useEffect(() => {
+    setDocHeight(document.body.scrollHeight);
+    console.log(docHeight);
+  }, [docHeight]);
 
   return (
     <div className="body">
       <div className="parallax">
-        <Parallax />
+        <Parallax docHeight={docHeight} />
       </div>
       <div className="headerDiv">
         <div className="whiteDiv">

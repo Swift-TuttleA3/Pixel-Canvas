@@ -27,7 +27,7 @@ const pixelArr = [
 ];
 
 let renderArr = [];
-const pixelCount = 50;
+const pixelCount = 100;
 for (let i = 0; i < pixelCount; i++) {
   renderArr.push(pixelArr[Math.floor(Math.random() * pixelArr.length)]);
 }
@@ -49,13 +49,13 @@ function getRandomColor() {
   return colors[randNum];
 }
 
-const Parallax = () => {
+const Parallax = ({ docHeight }) => {
   return (
     <>
       <MouseParallaxContainer
         containerStyle={{
           width: "100vw",
-          height: "100vh",
+          height: `${docHeight}px`,
         }}
       >
         {renderArr.map((pixel, index) => (
@@ -71,7 +71,7 @@ const Parallax = () => {
                 height: `${pixel.size}px`,
                 backgroundColor: `${getRandomColor(colors)}`,
                 position: "absolute",
-                top: `${Math.floor(Math.random() * window.innerHeight)}px`,
+                top: `${Math.floor(Math.random() * docHeight)}px`,
                 left: `${Math.floor(Math.random() * window.innerWidth)}px`,
               }}
             ></div>
