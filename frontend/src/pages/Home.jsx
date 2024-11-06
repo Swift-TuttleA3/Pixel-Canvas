@@ -66,6 +66,7 @@ function Home() {
   return (
     <div className="body">
       <NavbarBurger /> 
+      <Navbar />
       <div className="headerDiv">
         <div className="whiteDiv">
           <h1 id="title" ref={titleRef}>
