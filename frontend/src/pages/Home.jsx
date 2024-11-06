@@ -73,8 +73,8 @@ function Home() {
           </div>
         </div>
       </div>
-      <p className="finalproject">FINAL PROJECT</p>
-      <ul className="lorem">
+      <p className="finalproject">ANLEITUNG</p>
+      <ul className="lorem relative pointer-events-none">
         <li>
           <span>1. Registriere</span> dich einfach mit deinem Benutzernamen,
           deiner E-Mail-Adresse und einem Passwort.
@@ -87,8 +87,8 @@ function Home() {
         <li>
           <span>3. Setze Pixel</span> für Pixel und steige im Level um dein
           Timeout zu halbieren. Das bedeutet, dass du anfangs nur alle 10
-          Sekunden einen Pixel setzten kannst. Level 1 erreichst du nach 500
-          Pixeln. Spiele mehr um zu erfahren wie es weitergeht. Viel Spaß!'
+          Sekunden einen Pixel setzten kannst. Level 2 erreichst du nach 500
+          Pixeln. Spiele mehr um zu erfahren wie es weitergeht. Viel Spaß!
         </li>
       </ul>
 
