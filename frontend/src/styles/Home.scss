@@ -15,10 +15,21 @@ body {
   width: 100vw;
 }
 
+p {
+  z-index: 1;
+  position: relative;
+  pointer-events: none;
+}
+
+img {
+  pointer-events: none;
+}
+
 /*-----------------------------------------------------Header-----------------------------------------------------------------*/
 
 #midcontainer {
   width: 100%;
+  pointer-events: none;
 }
 .headerDiv {
   display: flex;

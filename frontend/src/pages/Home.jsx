@@ -1,17 +1,17 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/Home.scss"; // Dein CSS
 import CarPixel from "../img/CarPixel.png";
 import logocontroller from "../img/logocontroller.png";
 import NavbarBurger from "../components/NavbarBurger.jsx"; // burger-menu angeklatscht :)
 import Navbar from "../components/Navbar.jsx";
+import Parallax from "../components/Parallax.jsx";
+import { Link } from "react-router-dom";
 
 function Home() {
   // Verweise für die Elemente
   const titleRef = useRef(null);
   const catchphraseRef = useRef(null);
-  const starsRef = useRef([]);
-  const stars2Ref = useRef([]);
-  const stars3Ref = useRef([]);
+  const [docHeight, setDochHeight] = useState(0);
 
   // Parallax-Effekt mit useEffect hinzufügen
   useEffect(() => {
@@ -24,51 +24,17 @@ function Home() {
       catchphrase.style.position = "relative";
       catchphrase.style.zIndex = "10";
     }
-
-    const layers = [
-      { elements: starsRef.current, movementFactor: 0.05 },
-      { elements: stars2Ref.current, movementFactor: 0.1 },
-      { elements: stars3Ref.current, movementFactor: 0.15 },
-    ];
-
-    const handleMouseMove = (e) => {
-      let clientX, clientY;
-      if (e.type === "touchmove") {
-        clientX = e.touches[0].clientX;
-        clientY = e.touches[0].clientY;
-      } else {
-        clientX = e.clientX;
-        clientY = e.clientY;
-      }
-
-      layers.forEach((layer) => {
-        layer.elements.forEach((star) => {
-          const rect = star.getBoundingClientRect();
-          const starX = rect.left + rect.width / 2;
-          const starY = rect.top + rect.height / 2;
-          const deltaX = clientX - starX;
-          const deltaY = clientY - starY;
-          const newX = deltaX * layer.movementFactor;
-          const newY = deltaY * layer.movementFactor;
-          star.style.transform = `translate(${newX}px, ${newY}px)`;
-        });
-      });
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("touchmove", handleMouseMove);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("touchmove", handleMouseMove);
-    };
+    setDochHeight(document.body.scrollHeight);
   }, []);
 
   return (
     <div className="body">
-      <NavbarBurger /> 
+      <NavbarBurger />
       <Navbar />
-      <div className="headerDiv">
+      <div className="parallax-home pointer-events-auto absolute">
+        <Parallax docHeight={docHeight} pixelCount={100} />
+      </div>
+      <div className="headerDiv pointer-events-none">
         <div className="whiteDiv">
           <h1 id="title" ref={titleRef}>
             DCI
@@ -78,80 +44,76 @@ function Home() {
           </p>
         </div>
         <div className="redDiv">
-          <h1 id="titlePixel">PIXEL</h1>
-          <h1 id="titleWars">WARS</h1>
+          <p id="titlePixel">PIXEL</p>
+          <p id="titleWars">WARS</p>
         </div>
       </div>
 
-      <div id="stars" ref={(el) => starsRef.current.push(el)}></div>
-      <div id="stars2" ref={(el) => stars2Ref.current.push(el)}></div>
-      <div id="stars3" ref={(el) => stars3Ref.current.push(el)}></div>
-
-      <main>
-        <h1 className="overview">OVERVIEW</h1>
-        <div className="container" id="midcontainer">
-          <div className="side">
-            <div className="topLeft">
-              <h1 className="ranking">RANKING</h1>
-            </div>
-            <div className="bottomLeft">
-              <h1 className="coding">CODING</h1>
-            </div>
+      <p className="overview">OVERVIEW</p>
+      <div className="container" id="midcontainer">
+        <div className="side">
+          <div className="topLeft">
+            <p className="ranking">RANKING</p>
           </div>
-          <div className="middle">
-            <h1 className="game">GAME</h1>
-          </div>
-          <div className="side">
-            <div className="topRight">
-              <h1 className="team">TEAM</h1>
-            </div>
-            <div className="bottomRight">
-              <h1 className="AGB">AGB</h1>
-            </div>
+          <div className="bottomLeft">
+            <p className="coding">CODING</p>
           </div>
         </div>
-        <h1 className="finalproject">FINAL PROJECT</h1>
-        <p className="lorem">
-          Lorem Ipsum ist in der Webentwicklung so beliebt, weil es einfach
-          keine Meinung hat. Es streitet nicht über Designentscheidungen und
-          beschwert sich nie über die Farbwahl oder die Typografie. Dazu klingt
-          es noch richtig schick – wer hätte gedacht, dass ein paar lateinisch
-          klingende Wörter einen simplen Platzhalter so intellektuell wirken
-          lassen? Der eigentliche Clou ist aber: Niemand liest es! Perfekt für
-          Entwickler, denn so müssen sie keine Sorge haben, dass der Text vom
-          Layout ablenkt oder plötzlich jemand fragt: Was bedeutet das
-          eigentlich? Außerdem steht Lorem Ipsum immer und überall bereit.
-        </p>
-
-        <div className="middleWrapper">
-          <img
-            className="bild"
-            src={CarPixel}
-            alt="a Pixled Car for a shop with a tree in background"
-          />
+        <div className="middle">
+          <Link to="/canvas">
+            <p className="game pointer-events-auto">ENTER GAME</p>
+          </Link>
         </div>
-
-        <h1 className="teamTitle">TEAM</h1>
-        <div className="teamWrapper">
-          <div className="frontend">
-            <h1 className="dev">FRONTEND</h1>
-            <p className="names">Lea</p>
-            <p className="names">Stina</p>
-            <p className="names">Tim</p>
+        <div className="side">
+          <div className="topRight">
+            <p className="team">TEAM</p>
           </div>
-          <img
-            className="controller"
-            src={logocontroller}
-            alt="ein pixelier controller"
-          />
-          <div className="backend">
-            <h1 className="dev">BACKEND</h1>
-            <p className="names">Benni</p>
-            <p className="names">Steven</p>
-            <p className="names">Robert</p>
+          <div className="bottomRight">
+            <p className="AGB">AGB</p>
           </div>
         </div>
-      </main>
+      </div>
+      <p className="finalproject">FINAL PROJECT</p>
+      <p className="lorem">
+        Lorem Ipsum ist in der Webentwicklung so beliebt, weil es einfach keine
+        Meinung hat. Es streitet nicht über Designentscheidungen und beschwert
+        sich nie über die Farbwahl oder die Typografie. Dazu klingt es noch
+        richtig schick – wer hätte gedacht, dass ein paar lateinisch klingende
+        Wörter einen simplen Platzhalter so intellektuell wirken lassen? Der
+        eigentliche Clou ist aber: Niemand liest es! Perfekt für Entwickler,
+        denn so müssen sie keine Sorge haben, dass der Text vom Layout ablenkt
+        oder plötzlich jemand fragt: Was bedeutet das eigentlich? Außerdem steht
+        Lorem Ipsum immer und überall bereit.
+      </p>
+
+      <div className="middleWrapper">
+        <img
+          className="bild"
+          src={CarPixel}
+          alt="a Pixled Car for a shop with a tree in background"
+        />
+      </div>
+
+      <p className="teamTitle">TEAM</p>
+      <div className="teamWrapper">
+        <div className="frontend">
+          <p className="dev">FRONTEND</p>
+          <p className="names">Lea</p>
+          <p className="names">Stina</p>
+          <p className="names">Tim</p>
+        </div>
+        <img
+          className="controller"
+          src={logocontroller}
+          alt="ein pixelier controller"
+        />
+        <div className="backend">
+          <p className="dev">BACKEND</p>
+          <p className="names">Benni</p>
+          <p className="names">Steven</p>
+          <p className="names">Robert</p>
+        </div>
+      </div>
     </div>
   );
 }
