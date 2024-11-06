@@ -2,32 +2,48 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav id="navbar">
-      <ul>
+    <nav id="navbar" className="hidden md:block">
+      <ul className="flex space-x-4">
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/" className="hover:text-customTertiary">
+            Home
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/login" className="hover:text-customTertiary">
+            Login
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/profile">Profile</NavLink>
+          <NavLink to="/profile" className="hover:text-customTertiary">
+            Profile
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/canvas">Canvas</NavLink>
+          <NavLink to="/canvas" className="hover:text-customTertiary">
+            Canvas
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/team">Team</NavLink>
+          <NavLink to="/team" className="hover:text-customTertiary">
+            Team
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/statistik">Statistik</NavLink>
+          <NavLink to="/statistik" className="hover:text-customTertiary">
+            Statistik
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/devdesk">DevDesk</NavLink>
+          <NavLink to="/devdesk" className="hover:text-customTertiary">
+            DevDesk
+          </NavLink>
         </li>
       </ul>
     </nav>
   );
 }
+
+
 
 export default Navbar;

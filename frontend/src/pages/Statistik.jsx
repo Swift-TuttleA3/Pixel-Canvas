@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import banner from "../img/banner.png";
+import NavbarHome from "../components/NavbarHome.jsx";
 
 function UserStats() {
   const [username, setUsername] = useState("");
@@ -60,6 +61,8 @@ function UserStats() {
 
   const percentage = ((clicks / totalEntries) * 100).toFixed(2);
   return (
+    <>
+    <NavbarHome/>
     <div className="user-stats p-6 bg-gray-800 text-white rounded-lg">
       <h1 className="text-3xl mb-4 pixel-font text-yellow-500">Hey {username}!</h1>
       <div className="data mb-4">Dein Timeout: <span>{timer / 1000}</span> Sekunden</div>
@@ -71,10 +74,11 @@ function UserStats() {
         <div
           className="bg-customTertiary h-full rounded-md"
           style={{ width: `${percentage}%` }}
-        >{percentage}%</div>
+          >{percentage}%</div>
       </div>
       <div><img src={banner} alt="banner" className="rounded-md mt-4" /></div>
     </div>
+          </>
   );
 }
 
