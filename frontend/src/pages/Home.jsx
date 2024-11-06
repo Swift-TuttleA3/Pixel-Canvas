@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import "../styles/Home.scss"; // Dein CSS
 import CarPixel from "../img/CarPixel.png";
 import logocontroller from "../img/logocontroller.png";
-import NavbarHome from "../components/NavbarHome.jsx"; // burger-menu angeklatscht :)
+import NavbarBurger from "../components/NavbarBurger.jsx"; // burger-menu angeklatscht :)
 
 function Home() {
   // Verweise für die Elemente
@@ -65,7 +65,7 @@ function Home() {
 
   return (
     <div className="body">
-      <NavbarHome /> 
+      <NavbarBurger /> 
       <div className="headerDiv">
         <div className="whiteDiv">
           <h1 id="title" ref={titleRef}>

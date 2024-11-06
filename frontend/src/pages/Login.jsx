@@ -6,7 +6,7 @@ import hund from '../img/Hund.png';
 import kopfhörer from '../img/kopfhörer.png';
 import teams from '../data/teams';
 import { register, login, loginWithGoogle } from '../services/api.js';
-import NavbarHome from '../components/NavbarHome.jsx';
+import NavbarBurger from '../components/NavbarBurger.jsx';
 
 function LoginPage() {
   // Use States 
@@ -99,7 +99,7 @@ function LoginPage() {
         <div id="stars2"></div>
         <div id="stars3"></div>
       </header>
-      <NavbarHome />
+      <NavbarBurger />
       {/* <!--Login Page--> */}
       <main>
         {/* <!--Login Bereich--> */}
