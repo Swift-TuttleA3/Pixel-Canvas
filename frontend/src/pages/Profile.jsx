@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { getProfile, editProfile, changePassword } from "../services/api.js";
+import Cookies from "js-cookie";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState(null);
@@ -90,7 +91,7 @@ const ProfilePage = () => {
 
   // Logout
   const handleLogout = useCallback(() => {
-    localStorage.removeItem("token"); // Optional: Clear any local tokens if used
+    localStorage.removeItem("token_js"); // Optional: Clear any local tokens if used
     document.cookie = "jwt=; Max-Age=0"; // Expire JWT cookie on logout
     window.location.href = "/login"; // Redirect to login
   }, []);
