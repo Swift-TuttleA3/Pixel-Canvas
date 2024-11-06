@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import banner from "../img/banner.png";
-import { Link } from "react-router-dom";
+
 function UserStats() {
   const [username, setUsername] = useState("");
   const [clicks, setClicks] = useState(0);
@@ -59,19 +59,23 @@ function UserStats() {
   }, []);
 
   const percentage = ((clicks / totalEntries) * 100).toFixed(2);
-
   return (
-    <div className="user-stats">
-      <h1>Hey {username}!</h1>
-      <div className="data">Alle Pixel: <span>{totalEntries}</span></div>
-      <div className="data">Anzahl deiner Pixel: <span>{clicks}</span></div>
-      <div>Dein Anteil am Ganzen: <span>{percentage}</span> %</div> 
-      <div className="data">Deine Stufe: <span>{tier}</span> von 4</div>
-      <div className="data">Dein Timeout: <span>{timer / 1000}</span> Sekunden</div>
-      <div><img src={banner} alt="banner" /></div>
+    <div className="user-stats p-6 bg-gray-800 text-white rounded-lg">
+      <h1 className="text-3xl mb-4 pixel-font text-yellow-500">Hey {username}!</h1>
+      <div className="data mb-4">Dein Timeout: <span>{timer / 1000}</span> Sekunden</div>
+      <div className="data mb-2">Deine Stufe: <span>{tier}</span> von 4</div>
+      <div className="data mb-2">Alle Pixel: <span>{totalEntries}</span></div>
+      <div className="data mb-2">Anzahl deiner Pixel: <span>{clicks}</span></div>
+      <div className="data mb-2">Dein Anteil am Ganzen:</div>
+      <div className="w-full bg-gray-700 rounded-md h-6 mb-2">
+        <div
+          className="bg-customTertiary h-full rounded-md"
+          style={{ width: `${percentage}%` }}
+        >{percentage}%</div>
+      </div>
+      <div><img src={banner} alt="banner" className="rounded-md mt-4" /></div>
     </div>
   );
 }
-
 
 export default UserStats;

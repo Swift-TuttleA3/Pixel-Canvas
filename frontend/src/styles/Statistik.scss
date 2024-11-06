@@ -1,3 +1,51 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('../assets/fonts/press_start_2p/PressStart2P.ttf');
+}
+
+$background-image-canvas-container: url("../assets/media/img/canvas-bg-wimmel.png");
+
+.user-stats {
+  font-family: "Press Start 2P", cursive;
+  background-color: #d1655bc2;
+  color: #ffffff;
+  padding: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  text-align: center;
+
+  .pixel-font {
+    font-size: xx-large;
+    color: #329694;
+    text-shadow: 1px 1px 0 #000000;
+  }
+
+  .data {
+    margin: 10px 0;
+    font-size: medium;
+    span {
+      color: rgb(53, 0, 0);
+      font-weight: bolder;
+    }
+  }
+
+  .progress-bar-container {
+    background-color: #454545;
+    border-radius: 5px;
+    height: 20px;
+    margin: 10px 0;
+
+    .progress-bar {
+      background-color: #329694;
+      height: 100%;
+      border-radius: 5px;
+      transition: width 0.3s ease-in-out;
+    }
+  }
+}
+
+
+/*
 ul {
   list-style: none;
 }
@@ -30,3 +78,4 @@ span {
 .data {
   font-size: medium;
 }
+*/

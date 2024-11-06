@@ -12,6 +12,8 @@ export default {
         customTertiary: "#329694",
         customQuartiary: "#eb8c80",
         customQuintiary: "#d1655bc2",
+        customYellow: "#E3D3E0",
+        customGray: "#52396a",
       },
     },
   },
