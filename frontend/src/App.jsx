@@ -44,7 +44,7 @@ function App() {
         <Route
           path="/devdesk"
           element={
-            <PrivateRoute adminOnly="true">
+            <PrivateRoute adminOnly={true}>
               <DevDesk />
             </PrivateRoute>
           }

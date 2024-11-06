@@ -15,7 +15,6 @@ const ProfilePage = () => {
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState(null);
 
-
   // Error Nachricht nach 5 Sekunden ausblenden
   useEffect(() => {
     const timer = setTimeout(() => setMessage(null), 5000);
@@ -35,9 +34,6 @@ const ProfilePage = () => {
         setMessage({ type: "error", text: "Fehler beim Laden des Profils" });
       }
     };
-
-
-    
     fetchProfile();
   }, []);
 
@@ -94,32 +90,33 @@ const ProfilePage = () => {
 
   // Logout
   const handleLogout = useCallback(() => {
-    localStorage.removeItem("token_js"); // Optional: Clear any local tokens if used
-    document.cookie = "jwt=; Max-Age=0"; // Expire JWT cookie on logout
+    Cookies.remove("token_js"); // Remove the token cookie
     window.location.href = "/login"; // Redirect to login
   }, []);
 
   return (
-    <div className="profilewrap">
-      <NavbarBurger />
-      <Navbar />
+    <div className="p-6 bg-customSecondary text-white rounded-lg">
       {message && (
         <div className={`message ${message.type}`}>{message.text}</div>
       )}
       {profile ? (
         <div className="profile-content">
-          <h1>Profil</h1>
-          <button onClick={() => setEditing((prev) => !prev)}>
+          <h1 className="text-3xl mb-4 pixel-font text-customBeige">Profil</h1>
+          <button
+            className="bg-customTertiary text-white px-4 py-2 rounded mb-4"
+            onClick={() => setEditing((prev) => !prev)}
+          >
             {editing ? "Abbrechen" : "Bearbeiten"}
           </button>
           {editing ? (
-            <form onSubmit={handleEditProfile}>
+            <form onSubmit={handleEditProfile} className="space-y-4">
               <input
                 type="text"
                 placeholder="Benutzername"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
+                className="w-full p-2 rounded bg-gray-700 text-white"
               />
               <input
                 type="email"
@@ -127,25 +124,31 @@ const ProfilePage = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="w-full p-2 rounded bg-gray-700 text-white"
               />
               <select
                 value={team}
                 onChange={(e) => setTeam(e.target.value)}
                 required
+                className="w-full p-2 rounded bg-gray-700 text-white"
               >
                 <option value="" disabled hidden>
                   Team auswählen
                 </option>
-                {Object.keys(teams).map((key) => (
-                  <option key={key} value={key}>
-                    {teams[key]}
-                  </option>
-                ))}
+                {/* Beispielteams */}
+                <option value="team1">Team 1</option>
+                <option value="team2">Team 2</option>
+                <option value="team3">Team 3</option>
               </select>
-              <button type="submit">Profil speichern</button>
+              <button
+                type="submit"
+                className="bg-green-500 text-white px-4 py-2 rounded"
+              >
+                Profil speichern
+              </button>
             </form>
           ) : (
-            <div>
+            <div className="space-y-2">
               <p>
                 <strong>Benutzername:</strong> {profile.username}
               </p>
@@ -158,14 +161,17 @@ const ProfilePage = () => {
             </div>
           )}
 
-          <h2>Passwort ändern</h2>
-          <form onSubmit={handleChangePassword}>
+          <h2 className="text-2xl mt-6 mb-4 pixel-font text-customYellow">
+            Passwort ändern
+          </h2>
+          <form onSubmit={handleChangePassword} className="space-y-4">
             <input
               type="password"
               placeholder="Altes Passwort"
               value={oldPassword}
               onChange={(e) => setOldPassword(e.target.value)}
               required
+              className="w-full p-2 rounded bg-gray-700 text-white"
             />
             <input
               type="password"
@@ -173,11 +179,22 @@ const ProfilePage = () => {
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               required
+              className="w-full p-2 rounded bg-gray-700 text-white"
             />
-            <button type="submit">Passwort ändern</button>
+            <button
+              type="submit"
+              className="bg-customTertiary text-white px-4 py-2 rounded"
+            >
+              Passwort ändern
+            </button>
           </form>
 
-          <button onClick={handleLogout}>Logout</button>
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 text-white px-4 py-2 rounded mt-6"
+          >
+            Logout
+          </button>
         </div>
       ) : (
         <div>Profil wird geladen...</div>
