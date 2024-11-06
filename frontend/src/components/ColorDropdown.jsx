@@ -2,15 +2,12 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import colors from "../utilities/colors";
 import "../styles/ColorDropdown.scss";
-import Cookies from "js-cookie";
 
 const ColorDropdown = ({ position, onSelectColor }) => {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    Cookies.remove("token_js");
-    Cookies.remove("username");
-    navigate("/login");
+  const handleExit = () => {
+    navigate("/");
   };
 
   return (
@@ -39,8 +36,8 @@ const ColorDropdown = ({ position, onSelectColor }) => {
           <li onClick={() => navigate("/agb")}>AGB</li>
         </ul>
       </nav>
-      <button className="logout-button" onClick={handleLogout}>
-        Logout
+      <button className="exit-button" onClick={handleExit}>
+        Exit
       </button>
     </div>
   );

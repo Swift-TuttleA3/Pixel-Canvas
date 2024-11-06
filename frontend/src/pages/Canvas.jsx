@@ -227,8 +227,10 @@ const Canvas = () => {
     return rectangles.map((rect, index) => <Rect key={index} {...rect} />);
   }, [rectangles]);
 
-  const handleExit = () => {
-    navigate("/");
+  const handleLogout = () => {
+    Cookies.remove("token_js");
+    Cookies.remove("username");
+    navigate("/login");
   };
 
   return (
@@ -302,8 +304,8 @@ const Canvas = () => {
               You: {username} (Stufe: {tier} Timeout:{" "}
               {(Math.max(0, remainingTime) / 1000).toFixed(3)}s)
             </div>
-            <button className="exit-button" onClick={handleExit}>
-              Exit
+            <button className="logout-button" onClick={handleLogout}>
+              Logout
             </button>
           </div>
         </>

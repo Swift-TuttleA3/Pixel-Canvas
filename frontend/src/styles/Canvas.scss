@@ -75,7 +75,7 @@ body {
     0 -18px 40px #f00;
 }
 
-.exit-button {
+.logout-button {
   background-color: rgb(38, 107, 96, 0.5);
   width: 400px;
   border-color: rgba(0, 0, 0, 0.2);
@@ -87,6 +87,6 @@ body {
   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.7);
 }
 
-.exit-button:hover {
-  background-color: rgba(255, 0, 0, 0.5);
+.logout-button:hover {
+  background-color: rgba(255, 0, 0, 0.7);
 }
