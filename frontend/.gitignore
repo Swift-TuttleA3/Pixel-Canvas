@@ -1,14 +1,1 @@
-# Ignoriere alle Dateien
-*
-
-
-#pages
-!/src/pages/Home.jsx
-
-
-#stylepages
-!/src/styles/AGB.scss
-!/src/styles/Home.scss
-
-
-!tailwind.config.js
+node_modules
