@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '../styles/Login.scss';
 import loginbild from '../img/loginbild.png';
 import einhorn from '../img/einhorn.png';
