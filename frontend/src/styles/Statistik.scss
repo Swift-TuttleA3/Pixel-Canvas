@@ -13,6 +13,10 @@ body .wrapper {
   align-items: center;
 }
 
+.parallax-stats {
+  z-index: -1;
+}
+
 .user-stats {
   font-family: "Press Start 2P", cursive;
   background-color: #d1655bc2;

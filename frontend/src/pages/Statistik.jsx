@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import banner from "../img/banner.png";
 import NavbarBurger from "../components/NavbarBurger.jsx";
 import Navbar from "../components/Navbar.jsx";
+import Parallax from "../components/Parallax.jsx";
 
 function UserStats() {
   const [username, setUsername] = useState("");
@@ -10,6 +11,8 @@ function UserStats() {
   const [tier, setTier] = useState(1);
   const [timer, setTimer] = useState(10000);
   const [totalEntries, setTotalEntries] = useState(0);
+  const [docHeight, setDocHeight] = useState(0);
+
   useEffect(() => {
     const fetchUserStats = async () => {
       const token = Cookies.get("token_js");
@@ -58,14 +61,20 @@ function UserStats() {
     };
     fetchUserStats();
     fetchTotalEntries();
+    setDocHeight(document.body.scrollHeight);
   }, []);
 
   const percentage = ((clicks / totalEntries) * 100).toFixed(2);
   return (
     <>
       <NavbarBurger />
-      <Navbar />
-      <div className="wrapper">
+      <div className="pointer-events-auto">
+        <Navbar />
+      </div>
+      <div className="parallax-stats absolute">
+        <Parallax docHeight={docHeight} pixelCount={50} />
+      </div>
+      <div className="wrapper z-10">
         <div className="user-stats p-6 bg-gray-800 text-white rounded-lg">
           <h1 className="text-3xl mb-4 pixel-font text-yellow-500">
             Hey {username}!
