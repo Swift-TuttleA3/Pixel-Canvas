@@ -1,14 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/AGB.scss";
 import Navbar from "../components/Navbar";
+import Parallax from "../components/Parallax.jsx";
 
 function AGB() {
   // Verweise für die Elemente
   const titleRef = useRef(null);
   const catchphraseRef = useRef(null);
-  const starsRef = useRef([]);
-  const stars2Ref = useRef([]);
-  const stars3Ref = useRef([]);
+  const [docHeight, setDochHeight] = useState(0);
 
   // Parallax-Effekt mit useEffect hinzufügen
   useEffect(() => {
@@ -21,53 +20,17 @@ function AGB() {
       catchphrase.style.position = "relative";
       catchphrase.style.zIndex = "10";
     }
-
-    const layers = [
-      { elements: starsRef.current, movementFactor: 0.05 },
-      { elements: stars2Ref.current, movementFactor: 0.1 },
-      { elements: stars3Ref.current, movementFactor: 0.15 },
-    ];
-
-    const handleMouseMove = (e) => {
-      let clientX, clientY;
-      if (e.type === "touchmove") {
-        clientX = e.touches[0].clientX;
-        clientY = e.touches[0].clientY;
-      } else {
-        clientX = e.clientX;
-        clientY = e.clientY;
-      }
-
-      layers.forEach((layer) => {
-        layer.elements.forEach((star) => {
-          const rect = star.getBoundingClientRect();
-          const starX = rect.left + rect.width / 2;
-          const starY = rect.top + rect.height / 2;
-          const deltaX = clientX - starX;
-          const deltaY = clientY - starY;
-          const newX = deltaX * layer.movementFactor;
-          const newY = deltaY * layer.movementFactor;
-          star.style.transform = `translate(${newX}px, ${newY}px)`;
-        });
-      });
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-
-    document.addEventListener("touchmove", handleMouseMove);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-
-      document.addEventListener("touchmove", handleMouseMove);
-    };
+    setDochHeight(document.body.scrollHeight);
   }, []);
 
   return (
     <div className="body">
       <Navbar />
+      <div className="absolute">
+        <Parallax docHeight={docHeight} pixelCount={100} />
+      </div>
       <header>
-        <div className="headerDiv">
+        <div className="headerDiv pointer-events-none">
           <div className="whiteDiv">
             <h1 id="title" ref={titleRef}>
               DCI
@@ -77,18 +40,16 @@ function AGB() {
             </p>
           </div>
           <div className="redDiv">
-            <h1 id="DIE">DIE</h1>
-            <h1 id="AGB">AGB</h1>
+            <p id="DIE">AGB</p>
           </div>
         </div>
       </header>
       <main>
         <div className="Allgemein">
-          <h1 className="allgemein">ALLGEMEINE GESCHÄFTSBEDINGUNGEN</h1>
-          <h2 className="fuer">FÜR PIXELWARS</h2>
+          <p className="allgemein mt-20">ALLGEMEINE GESCHÄFTSBEDINGUNGEN</p>
         </div>
         <div className="bedingungen">
-          <h1 className="ueberschrifteins">1. Allgemeine Bestimmungen</h1>
+          <p className="ueberschrifteins">1. Allgemeine Bestimmungen</p>
           <p className="text">
             1.1. Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Nutzung
             des Spiels PixelWars (im Folgenden „Spiel“), das von [Ihr
@@ -104,7 +65,7 @@ function AGB() {
             bekanntgegeben. Fortgesetzte Nutzung des Spiels gilt als Zustimmung
             zu den Änderungen.
           </p>
-          <h1 className="ueberschriftzwei">2. Teilnahmeberechtigung</h1>
+          <p className="ueberschriftzwei">2. Teilnahmeberechtigung</p>
           <p className="text">
             2.1. Die Nutzung des Spiels ist nur Personen gestattet, die das
             Mindestalter von [Mindestalter, z. B. 13 oder 16 Jahren] erreicht
@@ -116,9 +77,9 @@ function AGB() {
             machen und sind verpflichtet, ihr Konto und ihre Zugangsdaten sicher
             zu verwahren.
           </p>
-          <h1 className="ueberschrifteins">
+          <p className="ueberschrifteins">
             3. Spielbeschreibung und Nutzungsrechte
-          </h1>
+          </p>
           <p className="text">
             3.1. PixelWars ist ein interaktives, gemeinschaftsbasiertes
             Online-Spiel, bei dem Nutzer auf einer gemeinsamen Pixeloberfläche
@@ -136,7 +97,7 @@ function AGB() {
             unwiderrufliches, zeitlich und räumlich unbegrenztes Nutzungsrecht
             an allen erstellten Inhalten ein.
           </p>
-          <h1 className="ueberschriftzwei">4. Verhaltensregeln</h1>
+          <p className="ueberschriftzwei">4. Verhaltensregeln</p>
           <p className="text">
             4.1. Jeder Nutzer ist verpflichtet, sich respektvoll gegenüber
             anderen Spielern zu verhalten und die Spielregeln einzuhalten.
@@ -153,9 +114,9 @@ function AGB() {
             Verwendung von Bots, Scripten oder anderen automatisierten Verfahren
             zur Platzierung von Pixeln, ist untersagt.
           </p>
-          <h1 className="ueberschrifteins">
+          <p className="ueberschrifteins">
             5. Premium-Dienste und In-Game-Käufe
-          </h1>
+          </p>
           <p className="text">
             5.1. [Ihr Unternehmen] bietet möglicherweise Premium-Dienste oder
             In-Game-Käufe an, die den Nutzern zusätzliche Funktionen oder
@@ -170,7 +131,7 @@ function AGB() {
             persönlichen Gebrauch des Nutzers bestimmt und dürfen nicht an
             Dritte weitergegeben oder verkauft werden.
           </p>
-          <h1 className="ueberschriftzwei">6. Haftung und Gewährleistung</h1>
+          <p className="ueberschriftzwei">6. Haftung und Gewährleistung</p>
           <p className="text">
             6.1. [Ihr Unternehmen] haftet nur für Schäden, die durch
             vorsätzliches oder grob fahrlässiges Verhalten verursacht wurden.
@@ -185,7 +146,7 @@ function AGB() {
             Unternehmen] übernimmt keine Gewährleistung für die permanente
             Erreichbarkeit oder Fehlerfreiheit des Spiels.
           </p>
-          <h1 className="ueberschrifteins">7. Datenschutz</h1>
+          <p className="ueberschrifteins">7. Datenschutz</p>
           <p className="text">
             7.1. Die Nutzung des Spiels erfordert die Erhebung, Verarbeitung und
             Speicherung personenbezogener Daten. Die Datenschutzbestimmungen
@@ -196,7 +157,7 @@ function AGB() {
             vertraulich zu behandeln und ausschließlich im Rahmen der
             gesetzlichen Bestimmungen zu verwenden.
           </p>
-          <h1 className="ueberschriftzwei">8. Laufzeit und Kündigung</h1>
+          <p className="ueberschriftzwei">8. Laufzeit und Kündigung</p>
           <p className="text">
             8.1. Diese Vereinbarung wird auf unbestimmte Zeit geschlossen und
             kann von beiden Seiten jederzeit beendet werden.
@@ -207,7 +168,7 @@ function AGB() {
             gegen die AGB verstößt.
           </p>
 
-          <h1 className="ueberschrifteins">9. Schlussbestimmungen</h1>
+          <p className="ueberschrifteins">9. Schlussbestimmungen</p>
           <p className="text">
             7.1. Die Nutzung des Spiels erfordert die Erhebung, Verarbeitung und
             Speicherung personenbezogener Daten. Die Datenschutzbestimmungen
@@ -220,11 +181,6 @@ function AGB() {
           </p>
         </div>
       </main>
-
-      {/* Sterne-Ebenen */}
-      <div id="stars" ref={(el) => starsRef.current.push(el)}></div>
-      <div id="stars2" ref={(el) => stars2Ref.current.push(el)}></div>
-      <div id="stars3" ref={(el) => stars3Ref.current.push(el)}></div>
     </div>
   );
 }
