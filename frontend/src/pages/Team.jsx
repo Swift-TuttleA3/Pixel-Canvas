@@ -3,6 +3,7 @@ import "../styles/Home.scss"; // Dein CSS
 import CarPixel from "../img/CarPixel.png";
 import logocontroller from "../img/logocontroller.png";
 import NavbarHome from "../components/NavbarHome.jsx"; // burger-menu angeklatscht :)
+import Navbar from "../components/Navbar.jsx";
 
 function Team() {
   // Verweise für die Elemente
@@ -66,6 +67,7 @@ function Team() {
   return (
     <div className="body">
       <NavbarHome /> 
+      <Navbar />
       <div className="headerDiv">
         <div className="whiteDiv">
           <h1 id="title" ref={titleRef}>

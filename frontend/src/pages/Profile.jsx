@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 import { getProfile, editProfile, changePassword } from "../services/api.js";
 import Cookies from "js-cookie";
 import NavbarBurger from "../components/NavbarBurger.jsx";
+import NavbarLogin from "../components/NavbarLogin.jsx";
+import Navbar from "../components/Navbar.jsx";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState(null);
@@ -100,6 +102,7 @@ const ProfilePage = () => {
   return (
     <div className="profilewrap">
       <NavbarBurger />
+      <Navbar />
       {message && (
         <div className={`message ${message.type}`}>{message.text}</div>
       )}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getUsers } from '../services/api';
+import Navbar from '../components/Navbar';
 
 const DevDesk = () => {
   const [users, setUsers] = useState([]);
@@ -19,6 +20,8 @@ const DevDesk = () => {
   }, []);
 
   return (
+    <>
+    <Navbar />
     <div className="p-4">
       {message && <div className={`message ${message.type}`}>{message.text}</div>}
       <h1 className="text-3xl font-bold mb-4">DevDesk</h1>
@@ -40,6 +43,7 @@ const DevDesk = () => {
         ))}
       </ul>
     </div>
+            </>
   );
 };
 
