@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import "../styles/Home.scss"; // Dein CSS
 import logocontroller from "../img/logocontroller.png";
-import NavbarHome from "../components/NavbarHome.jsx"; // burger-menu angeklatscht :)
+import NavbarBurger from "../components/NavbarBurger.jsx"; // burger-menu angeklatscht :)
+import Navbar from "../components/Navbar.jsx";
 
 function Team() {
   // Verweise für die Elemente
@@ -64,7 +65,8 @@ function Team() {
 
   return (
     <div className="body">
-      <NavbarHome /> 
+      <NavbarBurger /> 
+      <Navbar />
       <div className="headerDiv">
         <div className="whiteDiv">
           <h1 id="title" ref={titleRef}>

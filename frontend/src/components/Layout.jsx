@@ -10,7 +10,7 @@ function Layout() {
       <header>
         <Header/>
       </header>
-       <Navbar/>
+       {/* <Navbar/> */}
       <main>
         <Outlet />
       </main>

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import "../styles/AGB.scss";
+import Navbar from "../components/Navbar";
 
 function AGB() {
   // Verweise für die Elemente
@@ -64,26 +65,8 @@ function AGB() {
 
   return (
     <div className="body">
+      <Navbar />
       <header>
-        <nav>
-          <ul>
-            <li>
-              <a href="#">HOME</a>
-            </li>
-            <li>
-              <a href="#">CANVA</a>
-            </li>
-            <li>
-              <a href="#">TEAM</a>
-            </li>
-            <li>
-              <a href="#">RANKING</a>
-            </li>
-            <li>
-              <a href="#">AGB</a>
-            </li>
-          </ul>
-        </nav>
         <div className="headerDiv">
           <div className="whiteDiv">
             <h1 id="title" ref={titleRef}>

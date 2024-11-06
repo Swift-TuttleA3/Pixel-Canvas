@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-function NavbarHome() {
+function NavbarBurger() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -12,7 +12,7 @@ function NavbarHome() {
     <nav className="fixed top-4 right-4 z-50">
       <div>
         <button
-          className="bg-gray-400 text-white p-2 rounded-lg focus:outline-none"
+          className="bg-gray-400 text-white p-2 rounded-lg focus:outline-none md:hidden"
           onClick={toggleMenu}
         >
           <svg
@@ -34,7 +34,7 @@ function NavbarHome() {
       <div
         className={`${
           isOpen ? "block" : "hidden"
-        } bg-customQuintiary text-white rounded-lg absolute right-0 mt-2 py-2 w-48`}
+        } bg-customQuintiary text-white rounded-lg absolute right-0 mt-2 py-2 w-48 md:hidden`}
       >
         <ul className="flex flex-col items-start p-2 space-y-2">
           <li>
@@ -78,4 +78,4 @@ function NavbarHome() {
   );
 }
 
-export default NavbarHome;
+export default NavbarBurger;
