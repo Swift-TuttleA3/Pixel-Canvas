@@ -3,6 +3,7 @@ import "../styles/Home.scss"; // Dein CSS
 import CarPixel from "../img/CarPixel.png";
 import logocontroller from "../img/logocontroller.png";
 import NavbarBurger from "../components/NavbarBurger.jsx"; // burger-menu angeklatscht :)
+import Navbar from "../components/Navbar.jsx";
 
 function Home() {
   // Verweise für die Elemente
