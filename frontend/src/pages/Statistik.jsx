@@ -74,7 +74,7 @@ function UserStats() {
       <div className="parallax-stats absolute">
         <Parallax docHeight={docHeight} pixelCount={50} />
       </div>
-      <div className="wrapper z-10">
+      <div className="wrapper z-10 pointer-events-none">
         <div className="user-stats p-6 bg-gray-800 text-white rounded-lg">
           <h1 className="text-3xl mb-4 pixel-font text-yellow-500">
             Hey {username}!
