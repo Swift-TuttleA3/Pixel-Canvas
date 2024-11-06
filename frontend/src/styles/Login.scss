@@ -1,6 +1,7 @@
 header {
   background-color: #f5cfb0;
 }
+
 /* Login-Page-Design */
 .login-container {
   font-family: "Oswald", sans-serif; /* einfacher div für den extra-font */
@@ -8,6 +9,18 @@ header {
 
 .login-container h1 {
   text-shadow: 1px 1px 2px black;
+}
+
+.parallax-login {
+  z-index: -1;
+}
+
+input {
+  pointer-events: all;
+}
+
+button {
+  pointer-events: all;
 }
 
 .login-container main {
@@ -53,7 +66,7 @@ header {
   border-radius: 10px;
   margin-bottom: 10px;
   background-color: #eb8c80;
-  
+
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
@@ -70,6 +83,7 @@ header {
   text-decoration: none;
   font-size: 5rem;
   margin-left: 5px;
+  pointer-events: all;
 }
 
 .forget-password {
@@ -119,6 +133,8 @@ h2 {
   flex-direction: column;
   align-items: center;
   width: 100vw;
+  z-index: 10;
+  pointer-events: all;
 }
 
 .img-box {
@@ -186,7 +202,7 @@ h3 {
   nav ul li {
     margin-right: 15px;
   }
-/* Login-Formula + Bild */
+  /* Login-Formula + Bild */
   .login-box {
     margin-top: 5vh;
     flex-direction: row;
@@ -227,7 +243,7 @@ h3 {
     margin-top: 1vh;
     width: 50%;
   }
-/* Pixel-Wars Info Box */
+  /* Pixel-Wars Info Box */
   h2 {
     font-size: 6vh;
   }
