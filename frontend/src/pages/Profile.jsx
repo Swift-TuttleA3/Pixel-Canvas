@@ -3,6 +3,7 @@ import { getProfile, editProfile, changePassword } from "../services/api.js";
 import Cookies from "js-cookie";
 import NavbarBurger from "../components/NavbarBurger.jsx";
 import Navbar from "../components/Navbar.jsx";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState(null);
@@ -13,6 +14,7 @@ const ProfilePage = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState(null);
+  const navigate = useNavigate();
 
   // Error Nachricht nach 5 Sekunden ausblenden
   useEffect(() => {
@@ -93,116 +95,128 @@ const ProfilePage = () => {
     window.location.href = "/login"; // Redirect to login
   }, []);
 
+  // Check if user is admin
+  const isAdmin = Cookies.get('isAdmin') === 'true';
+
   return (
     <div id="profile-container">
       <NavbarBurger />
       <Navbar />
-    <div className="p-6 bg-customSecondary text-white rounded-lg">  
-      {message && (
-        <div className={`message ${message.type}`}>{message.text}</div>
-      )}
-      {profile ? (
-        <div className="profile-content">
-          <h1 className="text-3xl mb-4 pixel-font text-customBeige">Profil</h1>
-          <button
-            className="bg-customTertiary text-white px-4 py-2 rounded mb-4"
-            onClick={() => setEditing((prev) => !prev)}
-          >
-            {editing ? "Abbrechen" : "Bearbeiten"}
-          </button>
-          {editing ? (
-            <form onSubmit={handleEditProfile} className="space-y-4">
+      <div className="p-6 bg-customSecondary text-white rounded-lg">
+        {message && (
+          <div className={`message ${message.type}`}>{message.text}</div>
+        )}
+        {profile ? (
+          <div className="profile-content">
+            <h1 className="text-3xl mb-4 pixel-font text-customBeige">Profil</h1>
+            <button
+              className="bg-customTertiary text-white px-4 py-2 rounded mb-4"
+              onClick={() => setEditing((prev) => !prev)}
+            >
+              {editing ? "Abbrechen" : "Bearbeiten"}
+            </button>
+            {editing ? (
+              <form onSubmit={handleEditProfile} className="space-y-4">
+                <input
+                  type="text"
+                  placeholder="Benutzername"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                  className="w-full p-2 rounded bg-gray-700 text-white"
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full p-2 rounded bg-gray-700 text-white"
+                />
+                <select
+                  value={team}
+                  onChange={(e) => setTeam(e.target.value)}
+                  required
+                  className="w-full p-2 rounded bg-gray-700 text-white"
+                >
+                  <option value="" disabled hidden>
+                    Team auswählen
+                  </option>
+                  {/* Beispielteams */}
+                  <option value="team1">Team 1</option>
+                  <option value="team2">Team 2</option>
+                  <option value="team3">Team 3</option>
+                </select>
+                <button
+                  type="submit"
+                  className="bg-green-500 text-white px-4 py-2 rounded"
+                >
+                  Profil speichern
+                </button>
+              </form>
+            ) : (
+              <div className="space-y-2">
+                <p>
+                  <strong>Benutzername:</strong> {profile.username}
+                </p>
+                <p>
+                  <strong>Email:</strong> {profile.email}
+                </p>
+                <p>
+                  <strong>Team:</strong> {profile.team}
+                </p>
+              </div>
+            )}
+
+            <h2 className="text-2xl mt-6 mb-4 pixel-font text-customYellow">
+              Passwort ändern
+            </h2>
+            <form onSubmit={handleChangePassword} className="space-y-4">
               <input
-                type="text"
-                placeholder="Benutzername"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                type="password"
+                placeholder="Altes Passwort"
+                value={oldPassword}
+                onChange={(e) => setOldPassword(e.target.value)}
                 required
                 className="w-full p-2 rounded bg-gray-700 text-white"
               />
               <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="password"
+                placeholder="Neues Passwort"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
                 required
                 className="w-full p-2 rounded bg-gray-700 text-white"
               />
-              <select
-                value={team}
-                onChange={(e) => setTeam(e.target.value)}
-                required
-                className="w-full p-2 rounded bg-gray-700 text-white"
-              >
-                <option value="" disabled hidden>
-                  Team auswählen
-                </option>
-                {/* Beispielteams */}
-                <option value="team1">Team 1</option>
-                <option value="team2">Team 2</option>
-                <option value="team3">Team 3</option>
-              </select>
               <button
                 type="submit"
-                className="bg-green-500 text-white px-4 py-2 rounded"
+                className="bg-customTertiary text-white px-4 py-2 rounded"
               >
-                Profil speichern
+                Passwort ändern
               </button>
             </form>
-          ) : (
-            <div className="space-y-2">
-              <p>
-                <strong>Benutzername:</strong> {profile.username}
-              </p>
-              <p>
-                <strong>Email:</strong> {profile.email}
-              </p>
-              <p>
-                <strong>Team:</strong> {profile.team}
-              </p>
-            </div>
-          )}
 
-          <h2 className="text-2xl mt-6 mb-4 pixel-font text-customYellow">
-            Passwort ändern
-          </h2>
-          <form onSubmit={handleChangePassword} className="space-y-4">
-            <input
-              type="password"
-              placeholder="Altes Passwort"
-              value={oldPassword}
-              onChange={(e) => setOldPassword(e.target.value)}
-              required
-              className="w-full p-2 rounded bg-gray-700 text-white"
-            />
-            <input
-              type="password"
-              placeholder="Neues Passwort"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              required
-              className="w-full p-2 rounded bg-gray-700 text-white"
-            />
+            {isAdmin && (
+              <button
+                onClick={() => navigate('/devdesk')}
+                className="bg-blue-500 text-white px-4 py-2 rounded mt-6"
+              >
+                DevDesk
+              </button>
+            )}
+
             <button
-              type="submit"
-              className="bg-customTertiary text-white px-4 py-2 rounded"
+              onClick={handleLogout}
+              className="bg-red-500 text-white px-4 py-2 rounded mt-6"
             >
-              Passwort ändern
+              Logout
             </button>
-          </form>
-
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 text-white px-4 py-2 rounded mt-6"
-          >
-            Logout
-          </button>
-        </div>
-      ) : (
-        <div>Profil wird geladen...</div>
-      )}
+          </div>
+        ) : (
+          <div>Profil wird geladen...</div>
+        )}
       </div>
-      </div>
+    </div>
   );
 };
 

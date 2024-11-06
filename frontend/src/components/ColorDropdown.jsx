@@ -34,7 +34,6 @@ const ColorDropdown = ({ position, onSelectColor }) => {
           <li onClick={() => navigate("/")}>Home</li>
           <li onClick={() => navigate("/profile")}>Profile</li>
           <li onClick={() => navigate("/statistik")}>Statistik</li>
-          <li onClick={() => navigate("/devdesk")}>DevDesk</li>
           <li onClick={() => navigate("/team")}>Team</li>
           <li onClick={() => navigate("/agb")}>AGB</li>
         </ul>

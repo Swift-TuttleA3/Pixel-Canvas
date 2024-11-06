@@ -74,15 +74,24 @@ const login = async (req, res) => {
       secure: process.env.NODE_ENV === "production",
       maxAge: 24 * 60 * 60 * 1000,
     });
+    res.cookie("isAdmin", user.isAdmin, {
+      httpOnly: false,
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 24 * 60 * 60 * 1000,
+    });
     res.json({
       msg: "Login erfolgreich",
-      user: { id: user._id, username: user.username, email: user.email },
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        isAdmin: user.isAdmin,
+      },
     });
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }
 };
-
 // Alle Benutzer anzeigen (nur für Admins)
 const getUsers = async (req, res) => {
   try {

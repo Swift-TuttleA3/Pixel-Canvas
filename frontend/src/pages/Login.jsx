@@ -33,6 +33,7 @@ function LoginPage() {
     try {
       const data = await login(email, password);
       localStorage.setItem('token', data.token); 
+      document.cookie = `isAdmin=${data.user.isAdmin}; path=/; max-age=${24 * 60 * 60}`;
       setMessage({ type: 'success', text: "Erfolgreicher Login!" });
       window.location.href = "/canvas";
     } catch (err) {

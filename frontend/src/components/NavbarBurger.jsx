@@ -67,11 +67,6 @@ function NavbarBurger() {
               Statistik
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/devdesk" className="hover:text-customTertiary">
-              DevDesk
-            </NavLink>
-          </li>
         </ul>
       </div>
     </nav>
