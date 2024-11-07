@@ -9,6 +9,7 @@ import WebSocketClient from "../components/WebSocketClient";
 import { Stage, Layer, Rect } from "react-konva";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import TrafficLight from "../components/TrafficLight.jsx"; // Importiere die TrafficLight-Komponente
+import { FaSpinner } from "react-icons/fa"; // Importiere das Spinner-Icon
 
 const Canvas = () => {
   const [selectedColor, setSelectedColor] = useState("red");
@@ -28,6 +29,7 @@ const Canvas = () => {
   const [timer, setTimer] = useState(5000); // Standard-Timer
   const [isClickAllowed, setIsClickAllowed] = useState(true);
   const [remainingTime, setRemainingTime] = useState(0); // Verbleibende Zeit
+  const [loading, setLoading] = useState(true); // Ladezustand
   const stageRef = useRef(null);
   const layerRef = useRef(null);
   const navigate = useNavigate();
@@ -58,7 +60,7 @@ const Canvas = () => {
           localStorage.removeItem("canvasData");
         }
       } else {
-        fetchDbData();
+        fetchDbData().finally(() => setLoading(false)); // Ladezustand beenden, wenn Daten gefetcht wurden
       }
     } else {
       setIsAuthenticated(false);
@@ -232,6 +234,14 @@ const Canvas = () => {
     <div className="canvas-layout">
       {isAuthenticated ? (
         <>
+          {loading && (
+            <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
+              <div className="flex items-center space-x-2 text-white">
+                <FaSpinner className="animate-spin" size={24} />
+                <span className="text-xl">Pixel werden gesammelt!</span>
+              </div>
+            </div>
+          )}
           <WebSocketClient
             setWs={setWs}
             setConnectionStatus={setConnectionStatus}
@@ -301,7 +311,7 @@ const Canvas = () => {
             <button
               id="exit-button"
               style={{ width: "200px" }}
-              className="flex-1 text-center text-2xl bg-red-600 hover:bg-red-900 text-white font-bold py-2 px-4 rounded"
+              className="flex-1 text-center text-2xl bg-customTertiary hover:bg-customSecondary text-customPrimary font-bold py-2 px-4 rounded"
               onClick={handleExit}
             >
               Exit
