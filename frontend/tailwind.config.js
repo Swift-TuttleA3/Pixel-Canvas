@@ -8,10 +8,10 @@ export default {
       },
       colors: {
         customPrimary: "#f5cfb0", // Zartröte
-        customSecondary: "#d1655bc2", // hellblaues Grau
+        customSecondary: "#d1655b",
         customTertiary: "#329694",
         customQuartiary: "#eb8c80",
-        customQuintiary: "#d1655bc2",
+        customQuintiary: "#d1655b",
         customYellow: "#E3D3E0",
         customGray: "#52396a",
         customBeige: "#f5cfb0",

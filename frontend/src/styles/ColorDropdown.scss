@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('../assets/fonts/press_start_2p/PressStart2P.ttf') format('truetype');
+}
+
 $background-image-canvas-container: url('../assets/media/img/Cozy2.png');
 
 $colors: (
@@ -37,10 +42,10 @@ $colors: (
   position: absolute;
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 220px;
   max-height: 70vh; 
   overflow-y: auto; 
-  background: linear-gradient(to top, #d38866, #f5cfb0);
+  background: linear-gradient(to top, #d1655b, #eb8c80, #8f8a8d, #329694);
   border: 1px solid #e2b961;
   border-radius: 5px;
   z-index: 10000;
@@ -80,26 +85,27 @@ $colors: (
 }
 
 .dropdown-nav li {
-  font-family: 'Gluten', sans-serif;
-  font-size: 2em;
+   display: block;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 1.3em;
   cursor: pointer;
   color: #ffffff;
   text-shadow: 1 1 5px rgba(0, 0, 0, 0.8);
   transition: color 0.2s;
-  padding: 5px 5px;
+  padding: 10px 10px;
   margin: 0;
-  line-height: 80%;
+  line-height: 70%;
 }
 
 .dropdown-nav li:hover {
   color: #ffffff;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.47);
-  background-color: #ff2600;
+  background-color: #329694;
   border-radius: 3px;
 }
 
 .logout-button {
-  font-family: 'Gluten', sans-serif;
+  font-family: 'Press Start 2P', sans-serif;
   margin-top: 10px;
   padding: 5px 10px;
   background-color: #ff0019;

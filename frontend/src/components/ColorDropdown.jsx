@@ -38,7 +38,7 @@ const ColorDropdown = ({ position, onSelectColor }) => {
           <li onClick={() => navigate("/agb")}>AGB</li>
         </ul>
       </nav>
-      <button className="logout-button" onClick={handleLogout}>
+      <button className="logout-button bg-customTertiary hover:bg-customPrimary hover:text-customTertiary text-customPrimary" onClick={handleLogout}>
         Logout
       </button>
     </div>
