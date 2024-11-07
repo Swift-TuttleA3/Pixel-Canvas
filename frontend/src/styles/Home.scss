@@ -6,13 +6,17 @@ body {
   overflow-x: hidden;
   position: relative;
 }
-
+/*
 .body {
-  /*background: rgb(255,255,255);
+  background: rgb(255,255,255);
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(251,236,224,0.6334908963585435) 50%, rgba(245,207,176,0.4682247899159664) 100%);
-    */
+    
   background-color: #f5cfb0;
   width: 100vw;
+}
+*/
+body {
+  background-color: #f5cfb0;
 }
 
 p {
