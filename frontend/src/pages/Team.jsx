@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import "../styles/Home.scss"; // Dein CSS
 import logocontroller from "../img/logocontroller.png";
+import benniPixPortrait from "../assets/media/img/benniPixPortrait.png";
 import NavbarBurger from "../components/NavbarBurger.jsx"; // burger-menu angeklatscht :)
 import Navbar from "../components/Navbar.jsx";
 
@@ -67,28 +68,7 @@ function Team() {
     <div className="body">
       <NavbarBurger /> 
       <Navbar />
-      <div className="headerDiv">
-        <div className="whiteDiv">
-          <h1 id="title" ref={titleRef}>
-            DCI
-          </h1>
-          <p id="catchphrase" ref={catchphraseRef}>
-            DIGITAL CAREER INSTITUTE
-          </p>
-        </div>
-        <div className="redDiv">
-          <h1 id="titlePixel">Team</h1>
-          <h1 id="titleWars">Space</h1>
-        </div>
-      </div>
-
-      <div id="stars" ref={(el) => starsRef.current.push(el)}></div>
-      <div id="stars2" ref={(el) => stars2Ref.current.push(el)}></div>
-      <div id="stars3" ref={(el) => stars3Ref.current.push(el)}></div>
-
-      <main>
         <h1 className="overview">Algorithmus Anarchisten</h1>
-        <h2 className="teamTitle">TEAM</h2>
         <div className="teamWrapper">
           <div className="frontend">
             <h3 className="dev">FRONTEND</h3>
@@ -104,11 +84,21 @@ function Team() {
           <div className="backend">
             <h3 className="dev">BACKEND</h3>
             <p className="names">Benni</p>
+            <img
+              style={{
+                height: "256px",
+                width: "256px",
+                borderRadius: "5px",
+                display: "block",
+                margin: "0 auto",
+              }}
+              src={benniPixPortrait}
+              alt="ein pixeliger Benni"
+            />
             <p className="names">Steven</p>
             <p className="names">Robert</p>
           </div>
         </div>
-      </main>
     </div>
   );
 }
