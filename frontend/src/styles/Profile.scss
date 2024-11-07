@@ -1,4 +1,11 @@
-#profile-container {
+.parallax-profile {
+  z-index: -1;
+}
+
+body #profile-container {
+  height: calc(100vh - 4.3rem);
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

@@ -73,18 +73,24 @@ function Home() {
           </div>
         </div>
       </div>
-      <p className="finalproject">FINAL PROJECT</p>
-      <p className="lorem">
-        Lorem Ipsum ist in der Webentwicklung so beliebt, weil es einfach keine
-        Meinung hat. Es streitet nicht über Designentscheidungen und beschwert
-        sich nie über die Farbwahl oder die Typografie. Dazu klingt es noch
-        richtig schick – wer hätte gedacht, dass ein paar lateinisch klingende
-        Wörter einen simplen Platzhalter so intellektuell wirken lassen? Der
-        eigentliche Clou ist aber: Niemand liest es! Perfekt für Entwickler,
-        denn so müssen sie keine Sorge haben, dass der Text vom Layout ablenkt
-        oder plötzlich jemand fragt: Was bedeutet das eigentlich? Außerdem steht
-        Lorem Ipsum immer und überall bereit.
-      </p>
+      <p className="finalproject">ANLEITUNG</p>
+      <ul className="lorem relative pointer-events-none">
+        <li>
+          <span>1. Registriere</span> dich einfach mit deinem Benutzernamen,
+          deiner E-Mail-Adresse und einem Passwort.
+        </li>
+        <li>
+          <span>2. Angekommen</span> auf der Leinwand kannst du mit der rechten
+          Taste ein Menü öffnen und mit der linken Taste kannst du deinen Pixel
+          setzen.
+        </li>
+        <li>
+          <span>3. Setze Pixel</span> für Pixel und steige im Level um dein
+          Timeout zu halbieren. Das bedeutet, dass du anfangs nur alle 10
+          Sekunden einen Pixel setzten kannst. Level 2 erreichst du nach 500
+          Pixeln. Spiele mehr um zu erfahren wie es weitergeht. Viel Spaß!
+        </li>
+      </ul>
 
       <div className="middleWrapper">
         <img

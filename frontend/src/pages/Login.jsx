@@ -96,21 +96,21 @@ function LoginPage() {
                     />
                     <br />
                     <br />
-                    <select
-                      name="team"
-                      value={team}
-                      onChange={(e) => setTeam(e.target.value)}
-                      required
-                    >
-                      <option value="" disabled hidden>
-                        Select your Class
-                      </option>
-                      {Object.keys(teams).map((key) => (
-                        <option key={key} value={key}>
-                          {teams[key]}
-                        </option>
-                      ))}
-                    </select>
+                    {/* <select */}
+                    {/* name="team" */}
+                    {/* value={team} */}
+                    {/* onChange={(e) => setTeam(e.target.value)} */}
+                    {/* required */}
+                    {/* > */}
+                    {/* <option value="" disabled hidden> */}
+                    {/* Select your Class */}
+                    {/* </option> */}
+                    {/* {Object.keys(teams).map((key) => ( */}
+                    {/* <option key={key} value={key}> */}
+                    {/* {teams[key]} */}
+                    {/* </option> */}
+                    {/* ))} */}
+                    {/* </select> */}
                   </>
                 )}
                 <label htmlFor="email"></label>

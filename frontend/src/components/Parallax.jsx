@@ -7,23 +7,23 @@ const Parallax = ({ docHeight, pixelCount }) => {
   const pixelArr = [
     {
       size: 6,
-      factor: 0.06,
+      factor: -0.06,
     },
     {
       size: 12,
-      factor: 0.12,
+      factor: -0.12,
     },
     {
       size: 18,
-      factor: 0.18,
+      factor: -0.18,
     },
     {
       size: 24,
-      factor: 0.24,
+      factor: -0.24,
     },
     {
       size: 30,
-      factor: 0.3,
+      factor: -0.3,
     },
   ];
 

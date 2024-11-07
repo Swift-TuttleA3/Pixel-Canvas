@@ -295,13 +295,24 @@ main {
 .lorem {
   font-size: calc(0.5rem + 1vw);
   font-family: "Actor", sans-serif;
+  color: #329694;
+  text-shadow: 1px 1px #ffff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: justify;
   width: 50%;
   margin: 0 auto;
   margin-bottom: 5rem;
+  padding-bottom: 5rem;
+}
+
+.lorem li {
+  margin-bottom: 1rem;
+}
+.lorem li span {
+  font-size: 2rem;
 }
 
 .middleWrapper {
