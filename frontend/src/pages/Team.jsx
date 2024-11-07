@@ -1,9 +1,15 @@
 import { useEffect, useRef } from "react";
-import "../styles/Home.scss"; // Dein CSS
-import logocontroller from "../img/logocontroller.png";
-import benniPixPortrait from "../assets/media/img/benniPixPortrait.png";
+import "../styles/Home.scss"; 
+import benniPixPortrait from "../assets/media/img/benni.png";
+import stevenPixPortrait from "../assets/media/img/steven2.png";
+import robertPixPortrait from "../assets/media/img/robert.png";
+import leaPixPortrait from "../assets/media/img/lea.png";
+import stinaPixPortrait from "../assets/media/img/stina.png";
+import timPixPortrait from "../assets/media/img/tim.png";
+import teamImage from "../assets/media/img/algo_anarch_FF.png";
 import NavbarBurger from "../components/NavbarBurger.jsx"; // burger-menu angeklatscht :)
 import Navbar from "../components/Navbar.jsx";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 function Team() {
   // Verweise für die Elemente
@@ -64,43 +70,60 @@ function Team() {
     };
   }, []);
 
+  const teamMembers = [
+    { name: "Lea", img: leaPixPortrait, scale: 1.5 },
+    { name: "Stina", img: stinaPixPortrait, scale: 1 },
+    { name: "Tim", img: timPixPortrait, scale: 1 },
+    { name: "Benni", img: benniPixPortrait, scale: 1 },
+    { name: "Steven", img: stevenPixPortrait, scale: 1.5 },
+    { name: "Robert", img: robertPixPortrait, scale: 1 },
+  ];
+
   return (
     <div className="body">
-      <NavbarBurger /> 
+      <NavbarBurger />
       <Navbar />
-        <h1 className="overview">Algorithmus Anarchisten</h1>
-        <div className="teamWrapper">
-          <div className="frontend">
-            <h3 className="dev">FRONTEND</h3>
-            <p className="names">Lea</p>
-            <p className="names">Stina</p>
-            <p className="names">Tim</p>
-          </div>
-          <img
-            className="controller"
-            src={logocontroller}
-            alt="ein pixeliger controller"
-          />
-          <div className="backend">
-            <h3 className="dev">BACKEND</h3>
-            <p className="names">Benni</p>
+      <h1 className="text-6xl text-center names m-5 pt-5 pb-2">Algorithmus Anarchisten</h1>
+      <div className="h-3 bg-gradient-to-r from-customTertiary via-customSecondary to-customTertiary my-10"></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-4">
+        {teamMembers.map((member) => (
+          <div key={member.name} className="text-center">
             <img
-              style={{
-                height: "256px",
-                width: "256px",
-                borderRadius: "5px",
-                display: "block",
-                margin: "0 auto",
-              }}
-              src={benniPixPortrait}
-              alt="ein pixeliger Benni"
+              className={`w-32 h-32 mx-auto rounded-full transform ${member.scale === 1.5 ? 'scale-150' : ''}`}
+              src={member.img}
+              alt={`ein pixeliger ${member.name}`}
             />
-            <p className="names">Steven</p>
-            <p className="names">Robert</p>
+            <p className="names mt-2">{member.name}</p>
+            <div className="flex justify-center space-x-4 mt-1">
+              <a href="#" className="text-gray-600 hover:text-gray-900">
+                <FaGithub size={20} />
+              </a>
+              <a href="#" className="text-blue-600 hover:text-blue-900">
+                <FaLinkedin size={20} />
+              </a>
+              <a href="#" className="text-red-600 hover:text-red-900">
+                <FaEnvelope size={20} />
+              </a>
+            </div>
+              
+      
+        
           </div>
-        </div>
+        ))}
+      </div>
     </div>
   );
 }
 
 export default Team;
+
+/*    team-image
+
+                <div className="vignette mx-4">
+          <img
+            className="w-64 h-64 rounded-full"
+            src={teamImage}
+            alt="Algorithmus Anarchisten Logo"
+          />
+        </div>
+*/
